@@ -1,0 +1,9 @@
+RC6.4.7B static verification
+- Python compile: PASS
+- Decision Engine source: unchanged
+- Generation-token cleanup authority: unchanged
+- Completion-before-submission-removal ordering: VERIFIED
+- Auto Paper budget uses time.monotonic(): VERIFIED
+- Per-table identity telemetry: IMPLEMENTED
+- Display mismatch point-in-time telemetry: IMPLEMENTED
+Runtime acceptance remains pending smoke/burn-in.

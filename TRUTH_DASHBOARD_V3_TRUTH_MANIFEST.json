@@ -1,0 +1,23 @@
+{
+  "version": "2.30.0",
+  "edition": "Commercial Truth Dashboard V3",
+  "scope": "presentation_only",
+  "claims": {
+    "scroll_container": true,
+    "responsive_cards": true,
+    "readable_minimum_heights": true,
+    "stacked_historical_charts": true,
+    "history_refresh_throttled": true,
+    "observe_only": true,
+    "execution_changed": false
+  },
+  "tests": {
+    "passed": 431,
+    "failed": 0
+  },
+  "limitations": [
+    "Qt runtime smoke test was not run because PySide6 is unavailable in the packaging environment",
+    "Hover/zoom chart interaction is not claimed in this release"
+  ],
+  "live_execution": "disabled"
+}

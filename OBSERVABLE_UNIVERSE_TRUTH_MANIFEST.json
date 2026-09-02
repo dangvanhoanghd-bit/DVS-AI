@@ -1,0 +1,10 @@
+{
+  "release": "2.32.1",
+  "edition": "Observable Universe Engine",
+  "protocol_version": "1.0",
+  "intersection_only": true,
+  "immutable_context": true,
+  "underpowered_recommendation_allowed": false,
+  "testnet_enabled": false,
+  "live_enabled": false
+}

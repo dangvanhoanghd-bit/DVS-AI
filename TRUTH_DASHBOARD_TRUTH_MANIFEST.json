@@ -1,0 +1,19 @@
+{
+  "version": "2.26.5",
+  "feature": "Truth Dashboard",
+  "status": "TRUTH_VERIFIED_WITH_LIMITATIONS",
+  "claims": {
+    "real_ui": "QWidget tab with QFrame cards and QTableWidget reliability table",
+    "calibration": "Reads calibrated probability and validation state from CoinAnalysis",
+    "drift": "Reads Brier/ECE/PSI drift telemetry from CoinAnalysis",
+    "order_flow": "Reads runtime diagnostics and Position Building quality metadata",
+    "evidence_reliability": "Displays stored family summaries without reverse engineering",
+    "observe_only": "Does not modify confidence, status, sizing, risk, intent, or execution"
+  },
+  "limitations": [
+    "Dashboard shows the selected or latest analysis only",
+    "Order-flow quality metadata is unavailable for legacy analyses without footprint metadata",
+    "No historical trend chart is included in this release",
+    "No automatic decision or execution changes are made"
+  ]
+}

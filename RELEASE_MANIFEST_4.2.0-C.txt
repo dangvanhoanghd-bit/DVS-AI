@@ -1,0 +1,6 @@
+DVS AI Alpha 4.2.0-C — Experiment Result Comparison & Reproducibility Verification
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Research workspace: data/research_workspace.db
+Canonical source database: read-only
+Automatic tuning: prohibited
+Trading authority: none

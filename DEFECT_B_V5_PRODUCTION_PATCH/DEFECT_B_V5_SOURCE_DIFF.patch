@@ -1,0 +1,308 @@
+--- /mnt/data/v5base/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V4/dvs_ai/ui/outcome_resolution_coordinator.py	2026-07-30 00:56:06.000000000 +0000
++++ /mnt/data/v5work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V5/dvs_ai/ui/outcome_resolution_coordinator.py	2026-07-30 01:36:55.555978402 +0000
+@@ -65,8 +65,8 @@
+ 
+     @Slot()
+     def run_cycle(self) -> None:
+-        self.cancel_event.clear()
+-        self.deadline_monotonic = None
++        # Cancellation is cleared by the coordinator immediately before dispatch.
++        # Never clear it here: shutdown may race with queued slot delivery.
+         run_id = self.store.start_run()
+         checked = updated = errors = 0
+         scan = paper = candidate = {}
+@@ -177,6 +177,8 @@
+         if self._active:
+             self._pending_refresh = True
+             return False
++        self._cancel_event.clear()
++        self._worker.deadline_monotonic = None
+         self._active = True
+         self._dispatch.emit()
+         return True
+--- /mnt/data/v5base/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V4/dvs_ai/services/outcome_tracker.py	2026-07-30 00:56:06.000000000 +0000
++++ /mnt/data/v5work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V5/dvs_ai/services/outcome_tracker.py	2026-07-30 01:36:55.555978402 +0000
+@@ -73,11 +73,24 @@
+             tz=timezone.utc,
+         ).strftime("%Y-%m-%d %H:%M:%S")
+ 
+-    def _fetch_chunk(self, symbol, since, limit):
++    def _fetch_chunk(self, symbol, since, limit, *, cancel_event=None, deadline_monotonic=None):
++        def cancelled() -> bool:
++            deadline = deadline_monotonic() if callable(deadline_monotonic) else deadline_monotonic
++            return bool((cancel_event is not None and cancel_event.is_set()) or
++                        (deadline is not None and time.monotonic() >= float(deadline)))
++
+         last_error = None
+         for delay in (0.0, 0.5, 1.0, 2.0):
++            if cancelled():
++                raise InterruptedError("outcome tracker cancelled before provider fetch")
+             if delay:
+-                time.sleep(delay)
++                if cancel_event is not None:
++                    if cancel_event.wait(delay):
++                        raise InterruptedError("outcome tracker cancelled during provider backoff")
++                else:
++                    time.sleep(delay)
++            if cancelled():
++                raise InterruptedError("outcome tracker cancelled before provider retry")
+             try:
+                 return self.provider.exchange.fetch_ohlcv(
+                     symbol,
+@@ -227,6 +240,8 @@
+                         symbol,
+                         since,
+                         chunk_size,
++                        cancel_event=cancel_event,
++                        deadline_monotonic=deadline_monotonic,
+                     )
+                     if not candles:
+                         break
+@@ -398,6 +413,8 @@
+                     expired += 1
+                     updated += 1
+ 
++            except InterruptedError:
++                raise
+             except Exception:
+                 errors += 1
+ 
+--- /mnt/data/v5base/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V4/dvs_ai/services/paper_trade_service.py	2026-07-30 00:56:06.000000000 +0000
++++ /mnt/data/v5work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V5/dvs_ai/services/paper_trade_service.py	2026-07-30 01:36:55.555978402 +0000
+@@ -1008,15 +1008,27 @@
+         self,
+         symbol: str,
+         since_text: str,
++        *,
++        cancel_event: threading.Event | None = None,
++        deadline_monotonic=None,
+     ) -> list[list[Any]]:
+         chunk = int(getattr(self.config, "paper_fetch_chunk", 1000))
+         max_chunks = int(getattr(self.config, "paper_max_chunks", 8))
+         since_ms = self._to_ms(since_text)
++        def cancellation_requested() -> bool:
++            deadline = deadline_monotonic() if callable(deadline_monotonic) else deadline_monotonic
++            return bool((cancel_event is not None and cancel_event.is_set()) or
++                        (deadline is not None and time.monotonic() >= float(deadline)))
++
+         output = []
+         for _ in range(max_chunks):
++            if cancellation_requested():
++                raise InterruptedError("paper trade candle fetch cancelled during shutdown")
+             candles = self.provider.exchange.fetch_ohlcv(
+                 symbol, timeframe="1m", since=since_ms, limit=chunk
+             )
++            if cancellation_requested():
++                raise InterruptedError("paper trade candle fetch cancelled after provider call")
+             if not candles:
+                 break
+             output.extend(candles)
+@@ -1150,16 +1162,28 @@
+                 raise InterruptedError("paper trade update cancelled during shutdown")
+             stats["checked"] += 1
+             try:
+-                result = self._update_one(row)
++                result = self._update_one(
++                    row, cancel_event=cancel_event, deadline_monotonic=deadline_monotonic
++                )
+                 stats["updated"] += 1
+                 if result == "EXPIRED":
+                     stats["expired"] += 1
++            except InterruptedError:
++                raise
+             except Exception:
+                 stats["errors"] += 1
+         return stats
+ 
+ 
+-    def _update_one(self, row: tuple) -> str | None:
++    def _update_one(self, row: tuple, *, cancel_event: threading.Event | None = None,
++                    deadline_monotonic=None) -> str | None:
++        def cancellation_requested() -> bool:
++            deadline = deadline_monotonic() if callable(deadline_monotonic) else deadline_monotonic
++            return bool((cancel_event is not None and cancel_event.is_set()) or
++                        (deadline is not None and time.monotonic() >= float(deadline)))
++
++        if cancellation_requested():
++            raise InterruptedError("paper trade update cancelled before row processing")
+ 
+         legacy_row = len(row) == 15
+         if legacy_row:
+@@ -1228,7 +1252,9 @@
+             return "EXPIRED"
+ 
+         since = last_checked_at or fill_time or created_at
+-        candles = self._fetch_candles_chunked(symbol, since)
++        candles = self._fetch_candles_chunked(
++            symbol, since, cancel_event=cancel_event, deadline_monotonic=deadline_monotonic
++        )
+         if not candles:
+             return None
+ 
+@@ -1247,6 +1273,8 @@
+         outcome_detail = stored_outcome_detail
+ 
+         for ts, o, h, l, c, v in candles:
++            if cancellation_requested():
++                raise InterruptedError("paper trade update cancelled during candle evaluation")
+             h, l, c = float(h), float(l), float(c)
+             ts_text = datetime.fromtimestamp(
+                 ts / 1000, tz=timezone.utc
+--- /mnt/data/v5base/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V4/dvs_ai/services/candidate_outcome_resolver.py	2026-07-30 00:56:06.000000000 +0000
++++ /mnt/data/v5work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V5/dvs_ai/services/candidate_outcome_resolver.py	2026-07-30 01:36:55.555978402 +0000
+@@ -38,11 +38,25 @@
+     def _ts(ms: int) -> str:
+         return datetime.fromtimestamp(ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+ 
+-    def _fetch(self, symbol: str, since: int, limit: int = 1000):
++    def _fetch(self, symbol: str, since: int, limit: int = 1000, *,
++               cancel_event: threading.Event | None = None, deadline_monotonic=None):
++        def cancellation_requested() -> bool:
++            deadline = deadline_monotonic() if callable(deadline_monotonic) else deadline_monotonic
++            return bool((cancel_event is not None and cancel_event.is_set()) or
++                        (deadline is not None and time.monotonic() >= float(deadline)))
++
+         last = None
+         for delay in (0.0, 0.5, 1.0):
++            if cancellation_requested():
++                raise InterruptedError("candidate resolver cancelled before provider fetch")
+             if delay:
+-                time.sleep(delay)
++                if cancel_event is not None:
++                    if cancel_event.wait(delay):
++                        raise InterruptedError("candidate resolver cancelled during provider backoff")
++                else:
++                    time.sleep(delay)
++            if cancellation_requested():
++                raise InterruptedError("candidate resolver cancelled before provider retry")
+             try:
+                 return self.provider.exchange.fetch_ohlcv(symbol, timeframe="1m", since=since, limit=limit)
+             except Exception as exc:  # pragma: no cover - provider-specific
+@@ -140,14 +154,25 @@
+                                realized_r=realized_r, mfe_r=mfe_r, mae_r=mae_r)
+             con.commit()
+ 
+-    def _resolve_one(self, row: dict[str, Any]) -> bool:
++    def _resolve_one(self, row: dict[str, Any], *, cancel_event: threading.Event | None = None,
++                     deadline_monotonic=None) -> bool:
++        def cancellation_requested() -> bool:
++            deadline = deadline_monotonic() if callable(deadline_monotonic) else deadline_monotonic
++            return bool((cancel_event is not None and cancel_event.is_set()) or
++                        (deadline is not None and time.monotonic() >= float(deadline)))
++
++        if cancellation_requested():
++            raise InterruptedError("candidate resolver cancelled before row processing")
+         side = row["direction"].upper(); entry_low=float(row["entry_low"]); entry_high=float(row["entry_high"])
+         stop=float(row["invalidation"]); tp1=float(row["tp1"]) if row["tp1"] is not None else None
+         tp2=float(row["tp2"]) if row["tp2"] is not None else tp1
+         planned=float(row["planned_entry"]); risk=max(abs(planned-stop),1e-12)
+         expiry=row["entry_expiry_at"]
+         start=row["fill_time"] or row["entry_wait_started_at"]
+-        candles=self._fetch(row["symbol"], self._to_ms(start))
++        candles=self._fetch(
++            row["symbol"], self._to_ms(start), cancel_event=cancel_event,
++            deadline_monotonic=deadline_monotonic,
++        )
+         if not candles:
+             self._persist(row,candidate_status=row["candidate_status"],outcome_status="PENDING",detail="NO_NEW_1M_DATA")
+             return False
+@@ -155,6 +180,8 @@
+         fill_time=row["fill_time"]; fill_price=row["fill_price"]
+         mfe=float(row.get("mfe_r") or 0.0); mae=float(row.get("mae_r") or 0.0)
+         for ts, _o, high, low, close, _v in candles:
++            if cancellation_requested():
++                raise InterruptedError("candidate resolver cancelled during candle evaluation")
+             t=self._ts(ts); high=float(high); low=float(low); close=float(close)
+             if not active:
+                 invalid_before = low <= stop if side=="LONG" else high >= stop
+@@ -219,7 +246,9 @@
+                 raise InterruptedError("candidate resolver cancelled during batch")
+             stats["checked"] += 1
+             try:
+-                changed = bool(self._resolve_one(row))
++                changed = bool(self._resolve_one(
++                    row, cancel_event=cancel_event, deadline_monotonic=deadline_monotonic
++                ))
+                 stats["updated"] += int(changed)
+                 with self.store.connect() as con:
+                     state = con.execute(
+@@ -240,6 +269,8 @@
+                         stats["entry_filled"] += 1
+                     else:
+                         stats["tracking_only"] += 1
++            except InterruptedError:
++                raise
+             except Exception as exc:
+                 stats["errors"] += 1
+                 self.store.record_failure(
+--- /mnt/data/v5base/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V4/dvs_ai/ui/main_window.py	2026-07-30 00:56:06.000000000 +0000
++++ /mnt/data/v5work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V5/dvs_ai/ui/main_window.py	2026-07-30 01:36:55.567978403 +0000
+@@ -2655,6 +2655,27 @@
+         self.is_closing=True
+         from dvs_ai.runtime.qthread_lifecycle_registry import REGISTRY as QTHREAD_REGISTRY
+         QTHREAD_REGISTRY.snapshot("close_event_entered_before_shutdown")
++        # Defect B v5: stop dispatch and cancel Outcome Resolution first, while
++        # the active stage still has a chance to observe the cooperative token.
++        if hasattr(self, "outcome_resolution_timer"):
++            self.outcome_resolution_timer.stop()
++        if hasattr(self, "outcome_resolution_coordinator"):
++            try:
++                outcome_shutdown_ok = self.outcome_resolution_coordinator.close(timeout_ms=5000)
++                if not outcome_shutdown_ok:
++                    self.status.setText(
++                        "Không thể đóng an toàn: Outcome Resolution chưa dừng trong 5 giây. "
++                        "Vui lòng chờ rồi đóng lại."
++                    )
++                    self.is_closing = False
++                    event.ignore()
++                    return
++            except Exception:
++                logger.exception("Early Outcome Resolution coordinator shutdown failed")
++                self.status.setText("Không thể đóng an toàn: lỗi khi dừng Outcome Resolution.")
++                self.is_closing = False
++                event.ignore()
++                return
+         try:
+             payload_shutdown_ok = PAYLOAD_FOOTPRINT_TELEMETRY.shutdown(timeout_s=5.0)
+         except Exception:
+@@ -2855,20 +2876,6 @@
+                 self.core_runtime_adapter._shutdown(timeout_ms=3000)
+             except Exception:
+                 logger.exception("Unified Core shadow adapter shutdown failed")
+-        if hasattr(self, "outcome_resolution_coordinator"):
+-            try:
+-                outcome_shutdown_ok = self.outcome_resolution_coordinator.close(timeout_ms=5000)
+-                if not outcome_shutdown_ok:
+-                    self.status.setText("Không thể đóng an toàn: Outcome Resolution vẫn đang dừng. Vui lòng chờ rồi đóng lại.")
+-                    event.ignore()
+-                    self.is_closing = False
+-                    return
+-            except Exception:
+-                logger.exception("Outcome resolution coordinator shutdown failed")
+-                self.status.setText("Không thể đóng an toàn: lỗi khi dừng Outcome Resolution.")
+-                event.ignore()
+-                self.is_closing = False
+-                return
+         if hasattr(self, "episode_integrity_monitor"):
+             try:
+                 self.episode_integrity_monitor.close(timeout_ms=5000)
+--- /mnt/data/v5base/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V4/dvs_ai/version.py	2026-07-30 00:56:06.000000000 +0000
++++ /mnt/data/v5work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH_V5/dvs_ai/version.py	2026-07-30 01:36:55.567978403 +0000
+@@ -5,7 +5,7 @@
+ """
+ 
+ APP_NAME = "DVS AI"
+-APP_VERSION = "RC6.4.7H-r2-DEFECT-B-PRODUCTION-PATCH-V4-CANCELLABLE-OUTCOME"
++APP_VERSION = "RC6.4.7H-r2-DEFECT-B-PRODUCTION-PATCH-V5-EARLY-DEEP-CANCELLATION"
+ APP_EDITION = (
+     "Technical Standard Validation · Auditable Telemetry · "
+     "Census Default-Off · Paper-only"
+@@ -14,7 +14,7 @@
+ EXECUTION_STATUS_LABEL = "● DATA LIVE · ORDERS LOCKED"
+ 
+ RELEASE_CHANNEL = "BETA2A_UNIFIED_OUTCOME_FOUNDATION"
+-BUILD_ID = "RC6.4.7H-r2-DEFECT-B-PRODUCTION-PATCH-V4"
++BUILD_ID = "RC6.4.7H-r2-DEFECT-B-PRODUCTION-PATCH-V5"
+ 
+ __all__ = [
+     "APP_NAME",

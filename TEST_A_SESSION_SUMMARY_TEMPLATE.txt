@@ -1,0 +1,12 @@
+TEST_A_BLAS_SINGLE_THREAD=1
+session_id=
+PID=
+started_at=
+ended_at=
+duration_seconds=
+completed_scan_cycles=
+universe_size=
+result=CLEAN|NOT_RESPONDING|NATIVE_CRASH|OTHER
+network_notes=
+user_interaction_notes=
+other_notes=

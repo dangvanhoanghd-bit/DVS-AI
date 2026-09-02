@@ -1,0 +1,16 @@
+{
+  "release": "2.26.4",
+  "feature": "Evidence Reliability Engine",
+  "status": "TRUTH_VERIFIED_WITH_LIMITATIONS",
+  "claims": {
+    "explicit_signal_time_snapshot": true,
+    "legacy_reverse_engineering": false,
+    "time_decay": true,
+    "regime_and_symbol_context": true,
+    "bayesian_shrinkage": true,
+    "insufficient_state": "UNKNOWN",
+    "observe_only": true,
+    "changes_decision_or_execution": false
+  },
+  "live_execution": "DISABLED"
+}

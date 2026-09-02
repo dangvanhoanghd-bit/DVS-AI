@@ -1,0 +1,13 @@
+{
+  "release": "2.32.5",
+  "protocol_version": "1.0",
+  "claims": [
+    "immutable_report_artifact",
+    "multi_format_same_payload",
+    "append_only_store",
+    "stopping_rule_enforcement",
+    "downstream_db_isolation"
+  ],
+  "test_file": "tests/test_v2325_production_validation_completion.py",
+  "sha256": "0e18bb4fa753a62eea107e666497214480f3cb6cef94e4348bb382a174d530d6"
+}

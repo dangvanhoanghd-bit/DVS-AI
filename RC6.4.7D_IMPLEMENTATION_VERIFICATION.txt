@@ -1,0 +1,16 @@
+RC6.4.7D IMPLEMENTATION VERIFICATION
+
+Build ID: RC6.4.7D-OBJECT-CENSUS-PAYLOAD-LIFECYCLE-REASON-TELEMETRY
+App version: 4.3.0E-3-QBP-4-RC7-BETA4A-RC6.4.7D
+Python compile: PASS
+Focused tests: 17/17 PASS
+Decision Engine SHA-256: 00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce
+Decision Engine changed: NO
+
+Runtime additions:
+- Dedicated low-frequency object census QThread
+- First census after 60 seconds; then every 300 seconds
+- No raw heap dump, repr, or retained object references
+- Auto Paper payload dispatch/release telemetry
+- Auto Paper completion message/reason telemetry
+- Runtime build identity constant corrected in dvs_ai/app.py

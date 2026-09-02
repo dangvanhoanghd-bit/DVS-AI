@@ -1,0 +1,19 @@
+DVS AI QBP-1 REAL BURN-IN INFRASTRUCTURE RC1
+
+Compileall: PASS
+Focused QBP-1 + QBP-0 regression tests: 12 passed
+Full project suite: 891 passed
+
+Bundled database verification:
+- quality eligible outcomes: 0
+- burn-in stage: QBP-0E_COLLECTING
+- cross-pipeline action: NO_OVERLAP_DETECTED
+- authority_granted: false
+- production_or_execution_authority: false
+
+Frozen Decision Engine:
+MD5: 72cf7d54e1ed6369400683358da8c0ef
+SHA-256: 00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce
+
+Important limitation:
+The bundled database has zero quality-eligible outcomes. This release validates infrastructure and safety behavior; it does not claim real-data burn-in completion.

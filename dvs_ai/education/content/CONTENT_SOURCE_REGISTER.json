@@ -1,0 +1,93 @@
+{
+  "active_sources": [
+    {
+      "version": "0.4",
+      "artifact_id": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.4",
+      "title": "Crypto Risk & Futures Literacy",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.4.zip",
+      "source_archive_sha256": "bc6e9b4a43b844ed559867c812bcf8ee538445c293ac74974f78ae2914aa5191",
+      "source_manifest_status": "IMPLEMENTED_STATIC_CURRICULUM",
+      "content_class": "GENERAL_MARKET_KNOWLEDGE",
+      "acceptance_gate_path": "90_GOVERNANCE/ACCEPTANCE_GATE.md",
+      "acceptance_gate_sha256": "150a3809aaed7ba54ca227ebfde44e1868dfde258035201449894197718f51b2"
+    },
+    {
+      "version": "0.5",
+      "artifact_id": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.5",
+      "title": "Market Structure & Technical Literacy",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.5.zip",
+      "source_archive_sha256": "768d98c337821ec973034addd01f25600d9f279af834b2fb7cc84a46c931c14a",
+      "source_manifest_status": "IMPLEMENTED_STATIC_CURRICULUM",
+      "content_class": "GENERAL_MARKET_KNOWLEDGE",
+      "acceptance_gate_path": "90_GOVERNANCE/ACCEPTANCE_GATE.md",
+      "acceptance_gate_sha256": "a37ff6555d3ac4685328941d1fc7954e9da490a6fafcd9c8cb1b0e3d0fb3c414"
+    },
+    {
+      "version": "0.6",
+      "artifact_id": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.6",
+      "title": "Decision-Making, Evidence & Uncertainty Literacy",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.6.zip",
+      "source_archive_sha256": "9d43ace6173ba33d414c53c98b59b51dfb8760dbd243fd58d003ebd1bc37e1de",
+      "source_manifest_status": "IMPLEMENTED_STATIC_CURRICULUM",
+      "content_class": "GENERAL_MARKET_KNOWLEDGE",
+      "acceptance_gate_path": "90_GOVERNANCE/ACCEPTANCE_GATE.md",
+      "acceptance_gate_sha256": "bcb5fbc4ee65f32ed52a6ee1c86e45c17a6bb896041547510ce499894528227b"
+    },
+    {
+      "version": "0.7",
+      "artifact_id": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.7",
+      "title": "Trade Planning, Execution & Review Literacy",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.7.zip",
+      "source_archive_sha256": "a74c54d2b854bd924b90b3a442b5cc0d5b151e49c90f81c59f09688e1582c85e",
+      "source_manifest_status": "IMPLEMENTED_STATIC_CURRICULUM",
+      "content_class": "GENERAL_MARKET_KNOWLEDGE",
+      "acceptance_gate_path": "90_GOVERNANCE/ACCEPTANCE_GATE.md",
+      "acceptance_gate_sha256": "c9e9a789974cdca43280de3b6c51555fea04696d833b9499b6134bcc6f43a82c"
+    },
+    {
+      "version": "0.8",
+      "artifact_id": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.8",
+      "title": "Trading Psychology, Behavioral Bias & Discipline",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.8.zip",
+      "source_archive_sha256": "5779f342472eb0b94b9f65e00ed91efa07ef8eb1fa1028301a5ddc93b078459e",
+      "source_manifest_status": "IMPLEMENTED_STATIC_CURRICULUM",
+      "content_class": "GENERAL_MARKET_KNOWLEDGE",
+      "acceptance_gate_path": "90_GOVERNANCE/ACCEPTANCE_GATE.md",
+      "acceptance_gate_sha256": "c4208f9f85a20b7e20c603700648469a8253657d3898403768b3bd4ccd57bb89"
+    },
+    {
+      "version": "0.9",
+      "artifact_id": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.9",
+      "title": "Portfolio, Capital Preservation & Multi-Position Risk Literacy",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.9.zip",
+      "source_archive_sha256": "3cca5f01d70ea00a49856b99dd22acd03f7a1b631a1edd1008fdb6ed73d8cc16",
+      "source_manifest_status": "IMPLEMENTED_STATIC_CURRICULUM",
+      "content_class": "GENERAL_MARKET_KNOWLEDGE",
+      "acceptance_gate_path": "90_GOVERNANCE/ACCEPTANCE_GATE.md",
+      "acceptance_gate_sha256": "2e1c721d222485e61536002f387d9223a1115c599956f30dad5cc7faea9029e7"
+    }
+  ],
+  "excluded_history": [
+    {
+      "version": "0.1",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.1(1).zip",
+      "source_archive_sha256": "7191905aa88e596943d7f4de47d8ef3ede877051619fe6e6d2ad82966e4043b1",
+      "manifest_status": "DRAFT_FOR_REVIEW",
+      "reason": "NOT_ACTIVE_IN_EDU01_v0.1_BECAUSE_SOURCE_MANIFEST_IS_DRAFT_FOR_REVIEW"
+    },
+    {
+      "version": "0.2",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.2(1).zip",
+      "source_archive_sha256": "8e30b5748a3d15384d7178d0f2736e5e6ccee6486074a114207d7549cbfa2499",
+      "manifest_status": "DRAFT_FOR_REVIEW",
+      "reason": "NOT_ACTIVE_IN_EDU01_v0.1_BECAUSE_SOURCE_MANIFEST_IS_DRAFT_FOR_REVIEW"
+    },
+    {
+      "version": "0.3",
+      "source_archive": "DVS_AI_USER_KNOWLEDGE_BASE_A_v0.3(1).zip",
+      "source_archive_sha256": "ade0e301bfbffd2302d85b412a2e2a43e6381f9d710b17e5264d688239b3ac98",
+      "manifest_status": "DRAFT_FOR_REVIEW",
+      "reason": "NOT_ACTIVE_IN_EDU01_v0.1_BECAUSE_SOURCE_MANIFEST_IS_DRAFT_FOR_REVIEW"
+    }
+  ]
+}

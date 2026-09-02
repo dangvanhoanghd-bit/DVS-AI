@@ -1,0 +1,13 @@
+{
+  "patch": "Defect B Production Patch v3 \u2014 QThread Lifecycle Registry",
+  "compile_pass": true,
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "changed_files": [
+    "dvs_ai/runtime/qthread_lifecycle_registry.py",
+    "dvs_ai/app.py",
+    "dvs_ai/ui/main_window.py",
+    "dvs_ai/version.py"
+  ],
+  "coverage_limit": "All DVS/PySide QThread constructions after early hook; opaque third-party cached/native thread constructors are not guaranteed.",
+  "shutdown_timeout_ms": 5000
+}

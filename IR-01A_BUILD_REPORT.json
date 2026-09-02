@@ -1,0 +1,57 @@
+{
+  "build": "IR-01A-r1_SIGNAL_PATH_FORENSICS",
+  "created_at": "2026-08-01T03:08:00+07:00",
+  "scope": "Queued-signal path forensics and fail-fast startup gate; no business logic change",
+  "modified_files": [
+    "BUILD_ID.txt",
+    "IR-01A-r1_SIGNAL_PATH_FORENSICS.md",
+    "dvs_ai/integration/__init__.py",
+    "dvs_ai/integration/scientific_backend.py",
+    "dvs_ai/ui/main_window.py",
+    "dvs_ai/ui/truth_dashboard.py",
+    "dvs_ai/version.py"
+  ],
+  "original_sha256": {
+    "dvs_ai/integration/scientific_backend.py": "f65084e2803a81daa70206657f2c18904166063640a432379888bff4ecdd5452",
+    "dvs_ai/integration/__init__.py": "71537072bd6e9c8815c07ab0fbbfbbcfafc1f5e7f0e46f02ec0df8ff148be57b",
+    "dvs_ai/ui/truth_dashboard.py": "ccede153e72ff2e17bcdd1b7ed8fdbf03927fea6d597a89a9504eb7572b38eac"
+  },
+  "candidate_sha256": {
+    "dvs_ai/integration/scientific_backend.py": "2317482b936ad8a374f88dc66e7c1fb28e7e6fcc9bc4944001092e52f7f0fdbc",
+    "dvs_ai/integration/__init__.py": "691ef199c177367c715927627face6b39ea7dc3b895d8b4754abbd6ca8f9a4d8",
+    "dvs_ai/ui/truth_dashboard.py": "d892c7a795fa779c37e2d924e440d6911e96af08876138ded0a5dbacb69a8293",
+    "dvs_ai/ui/main_window.py": "50977b4c5f03dcc964921f9b5e02cbed14f735c613528732005cd869af15572b",
+    "dvs_ai/version.py": "8fe1acab72598dea0269f71796baf033e1b1942af31e2f273174c99b6fecfccc"
+  },
+  "implementation": {
+    "ScientificBackendWorker": true,
+    "ScientificDashboardPayload_frozen": true,
+    "RootDiscoveryCache_ttl_and_signature": true,
+    "single_root_resolution_per_snapshot": true,
+    "single_read_per_artifact_per_snapshot": true,
+    "explainability_parse_once_reused_for_decision_trace": true,
+    "generation_per_submit_latest_wins": true,
+    "stale_reject_before_gui_commit": true,
+    "scientific_io_removed_from_gui_refresh": true
+  },
+  "tests": {
+    "integration_scientific_backend_bridge": "23 passed",
+    "custom_ir01_checks": "PASS",
+    "legacy_truth_dashboard_suite": "1 unrelated pre-existing source-string assertion failure after 24 passes"
+  },
+  "runtime_verification": "PENDING_10_15_MIN_SMOKE_TEST",
+  "build_id": "RC6.4.7H-r2-IR-01A-r1-SIGNAL-PATH-FORENSICS",
+  "signal_path_forensics": {
+    "startup_self_test": true,
+    "pipelines": [
+      "history",
+      "paper",
+      "auto_paper"
+    ],
+    "fail_fast_disable": true,
+    "silent_reconnect": false,
+    "telemetry_file": "artifacts/runtime/signal_path_forensics.jsonl",
+    "deadline_ms": 3500
+  },
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce"
+}

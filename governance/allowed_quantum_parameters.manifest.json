@@ -1,0 +1,12 @@
+{
+  "artifact_file": "allowed_quantum_parameters.json",
+  "artifact_sha256": "734f7f3ad56d67c69d3a0c84b40611dff2ccbc3065766644e5d95ee1549e4dc9",
+  "artifact_type": "GOVERNANCE_ALLOW_LIST_MANIFEST",
+  "created_at": "2026-07-21T16:15:40.734978+00:00",
+  "decision_engine_md5": "72cf7d54e1ed6369400683358da8c0ef",
+  "main_write_authority": false,
+  "optimizer_write_authority": false,
+  "schema_version": "dvs-governance-artifact-manifest-v1",
+  "self_sha256": "b43963dd863075ac659f23eaee22cacb42bbe9777f6b2f78ce4d25f764a8761b",
+  "shadow_write_authority": false
+}

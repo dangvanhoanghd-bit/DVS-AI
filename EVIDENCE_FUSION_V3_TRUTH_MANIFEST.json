@@ -1,0 +1,18 @@
+{
+  "version": "2.26.6",
+  "feature": "Evidence Fusion V3",
+  "claims": {
+    "configurable_family_weights": "VERIFIED",
+    "reliability_weighting": "VERIFIED_WITH_UNKNOWN_NEUTRAL",
+    "source_provenance_weighting": "VERIFIED",
+    "directional_alignment_penalty": "VERIFIED",
+    "correlated_family_vote_cap": "VERIFIED",
+    "live_execution": "DISABLED"
+  },
+  "limitations": [
+    "Reliability is learned only from new PAPER rows with evidence snapshots.",
+    "Order-flow evidence is conservatively labeled PROXY.",
+    "Weights are configurable but are not auto-applied by Quantum Lab.",
+    "No LIVE execution changes are included."
+  ]
+}

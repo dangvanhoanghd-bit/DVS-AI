@@ -1,0 +1,14 @@
+DVS AI Alpha 4.2.4
+Full Python Thread Attribution & Residual Lifecycle Qualification
+
+Scope:
+- bounded read-only Python thread inventory
+- per-cycle new/persistent/retired thread attribution
+- thread category counts
+- high/low confidence timer-gap classification
+- no Decision Engine changes
+- no scanner logic changes
+- no execution changes
+
+Frozen Decision Engine MD5:
+72cf7d54e1ed6369400683358da8c0ef

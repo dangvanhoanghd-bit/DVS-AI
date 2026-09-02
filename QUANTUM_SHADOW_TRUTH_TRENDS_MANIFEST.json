@@ -1,0 +1,42 @@
+{
+  "version": "2.26.8",
+  "title": "Quantum Shadow-Only Optimization & Truth Trends",
+  "claims": [
+    {
+      "claim": "MAIN parameters are immutable in Quantum search",
+      "status": "VERIFIED",
+      "evidence": [
+        "quantum_optimizer.py",
+        "test_v2268_quantum_shadow_truth_trends.py"
+      ]
+    },
+    {
+      "claim": "Quantum can propose normalized Evidence Fusion weights only in Shadow Candidate",
+      "status": "VERIFIED",
+      "evidence": [
+        "quantum_optimizer.py"
+      ]
+    },
+    {
+      "claim": "Truth trend history is persisted and charted",
+      "status": "VERIFIED",
+      "evidence": [
+        "truth_trend_store.py",
+        "truth_dashboard.py"
+      ]
+    },
+    {
+      "claim": "Candidate requires human approval and does not mutate config",
+      "status": "VERIFIED"
+    },
+    {
+      "claim": "LIVE execution enabled",
+      "status": "FALSE"
+    }
+  ],
+  "limitations": [
+    "No automated promotion",
+    "Trend history starts after upgrade",
+    "Quantum fitness remains PAPER-only"
+  ]
+}

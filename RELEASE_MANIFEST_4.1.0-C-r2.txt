@@ -1,0 +1,22 @@
+DVS AI Alpha 4.1.0-C-r2
+Async Live Episode Capture
+
+Changed:
+- dvs_ai/ui/live_episode_capture_runner.py (new)
+- dvs_ai/app.py
+- dvs_ai/ui/main_window.py
+- tests/test_v410c_r2_live_episode_capture_runner.py (new)
+- START_DVS_AI.bat (release label only)
+- RELEASE_NOTES_4.1.0-C-r2.md
+
+Verification:
+- 707/707 tests passed
+- compileall passed
+- 27/27 dvs_ai/engines/*.py MD5 unchanged from 4.1.0-C-r1
+- decision_engine.py MD5: 72cf7d54e1ed6369400683358da8c0ef
+- 74 submissions: 1.340 ms total, 18.107 us/coin
+- 74/74 queued evaluations processed in stress test
+
+Known limitation:
+- structural_event_id remains NONE while CoinAnalysis lacks the exact
+  Spring/Upthrust trigger-candle timestamp.

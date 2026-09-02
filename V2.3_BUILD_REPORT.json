@@ -1,0 +1,9 @@
+{
+  "build_id": "RC6.4.7H-r2-GUI-PERFORMANCE-CANDIDATE-V2.3",
+  "compile_all": "PASS",
+  "release_identity_verifier": "PASS",
+  "negative_tests": "5/5 PASS",
+  "decision_engine_frozen": true,
+  "runtime_verification": "PENDING",
+  "production_approval": "NOT GRANTED"
+}

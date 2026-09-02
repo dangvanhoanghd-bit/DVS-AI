@@ -1,0 +1,19 @@
+{
+  "version": "2.28.3",
+  "module": "Shadow vs Baseline Statistical Comparison Audit",
+  "claims": {
+    "paired_observation_comparison": true,
+    "deterministic_bootstrap_ci": true,
+    "minimum_detectable_improvement": true,
+    "time_block_stability": true,
+    "readiness_requires_statistical_support": true,
+    "auto_promotion": false,
+    "main_immutable": true,
+    "live_execution": false
+  },
+  "limitations": [
+    "Observed PAPER outcome is used as a paired opportunity outcome; skipped decisions receive zero R.",
+    "Bootstrap confidence does not prove future performance.",
+    "No Testnet or LIVE execution is enabled."
+  ]
+}

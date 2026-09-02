@@ -1,0 +1,27 @@
+{
+  "version": "2.25.1",
+  "edition": "Persistent Order Flow Foundation",
+  "claims": [
+    {
+      "claim": "Persistent CVD accumulator",
+      "status": "VERIFIED_WITH_RETENTION_LIMIT",
+      "implementation": "dvs_ai/services/order_flow_store.py",
+      "test": "tests/test_v2251_persistent_order_flow_foundation.py"
+    },
+    {
+      "claim": "Liquidation forceOrder ingestion",
+      "status": "VERIFIED_PASSIVE_INGESTION_ONLY",
+      "implementation": "dvs_ai/services/order_flow_store.py",
+      "limitation": "No WebSocket connection is started"
+    },
+    {
+      "claim": "Realtime order-flow collector",
+      "status": "NOT_IMPLEMENTED",
+      "limitation": "A future network collector must call the passive ingestion API"
+    },
+    {
+      "claim": "Live execution",
+      "status": "DISABLED"
+    }
+  ]
+}

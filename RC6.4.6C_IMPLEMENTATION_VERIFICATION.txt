@@ -1,0 +1,23 @@
+RC6.4.6C IMPLEMENTATION VERIFICATION
+====================================
+Build ID: RC6.4.6C-STABLE-WORKER-GENERATION
+
+Implemented:
+- Worker.finished_with_identity = Signal(int, str, int)
+- Immutable generation/scan_id/cycle_index snapshot before signal emission
+- Identity signal emitted before legacy finished signal
+- Cleanup authority uses generation + scan_id + cycle_index only
+- No self.sender() call inside _cleanup_scan_worker
+- No QObject Python identity comparison gates cleanup
+- STALE_GENERATION_IGNORED retains stale-completion protection
+- Lifecycle cleanup connection precedes on_finished and deleteLater connection
+- Existing RC6.4.6B liveness instrumentation retained
+- Runtime evidence/log files reset for a clean session
+
+Static verification:
+- Python compile: PASS
+- Focused lifecycle tests: 21 PASS
+- Decision Engine SHA-256 unchanged from RC6.4.6B
+- Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+
+Runtime causal verification remains pending a 4-6 hour burn-in.

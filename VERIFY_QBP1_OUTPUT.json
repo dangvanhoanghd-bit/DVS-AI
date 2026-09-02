@@ -1,0 +1,116 @@
+{
+  "authority_granted": false,
+  "burn_in": {
+    "authority_granted": false,
+    "capabilities": [
+      {
+        "enabled": true,
+        "minimum_outcomes": 0,
+        "name": "descriptive_monitoring"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 30,
+        "name": "resolved_outcome_review"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 100,
+        "name": "effective_sample_size"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 100,
+        "name": "walk_forward"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 100,
+        "name": "purge_embargo"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 300,
+        "name": "bootstrap"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 300,
+        "name": "stability"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 300,
+        "name": "multiple_comparison"
+      },
+      {
+        "enabled": false,
+        "minimum_outcomes": 500,
+        "name": "paper_authority_handover_review"
+      }
+    ],
+    "eligible_outcomes": 0,
+    "generated_at": "2026-07-21T23:55:08.851994+00:00",
+    "missing_to_next": 30,
+    "next_threshold": 30,
+    "paper_authority_handover_eligible": false,
+    "readiness_audit": {
+      "eligible": 0,
+      "excluded": 0,
+      "total_terminal": 0
+    },
+    "self_sha256": "8e80e32b7d8591e4a26ad90b6084693629b4dd5d4ae9687e9df1b6d6b4c78be7",
+    "stage": "QBP-0E_COLLECTING",
+    "state": "INSUFFICIENT_BURN_IN"
+  },
+  "cross_pipeline": {
+    "action": "NO_OVERLAP_DETECTED",
+    "by_source": {},
+    "exact_link_overlaps": [],
+    "generated_at": "2026-07-21T23:55:08.852021+00:00",
+    "potential_overlaps": [],
+    "self_sha256": "525cbeeaf4accf9d53500ec7eab270ef9fd653a7fb0f078875e66482495e77a3",
+    "total": 0
+  },
+  "dashboard": {
+    "authority_granted": false,
+    "capabilities": {
+      "bootstrap": false,
+      "descriptive_monitoring": true,
+      "effective_sample_size": false,
+      "multiple_comparison": false,
+      "paper_authority_handover_review": false,
+      "purge_embargo": false,
+      "resolved_outcome_review": false,
+      "stability": false,
+      "walk_forward": false
+    },
+    "cross_pipeline_action": "NO_OVERLAP_DETECTED",
+    "eligible": 0,
+    "exact_overlap_count": 0,
+    "generated_at": "2026-07-21T23:55:08.852055+00:00",
+    "missing_to_next": 30,
+    "next_threshold": 30,
+    "potential_overlap_count": 0,
+    "progress_percent": 0,
+    "quality_exclusions": {},
+    "source_counts": {},
+    "stage": "QBP-0E_COLLECTING",
+    "state": "INSUFFICIENT_BURN_IN"
+  },
+  "generated_at": "2026-07-21T23:55:08.852062+00:00",
+  "milestones_appended": [],
+  "production_or_execution_authority": false,
+  "quality": {
+    "by_outcome": {},
+    "by_source": {},
+    "dataset_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "decisions": [],
+    "eligible": 0,
+    "eligible_identities": [],
+    "excluded": 0,
+    "exclusion_reasons": {},
+    "total_terminal": 0
+  },
+  "schema": "DVS_QBP1_REAL_BURN_IN_V1"
+}

@@ -1,0 +1,11 @@
+{
+  "version": "2.26.3-alpha",
+  "release": "Calibration Drift Monitor Truth Audit",
+  "claims": {
+    "chronological_drift_monitor": "verified",
+    "brier_ece_psi": "verified",
+    "observe_only": "verified",
+    "automatic_recalibration": "not_implemented",
+    "live_execution": "disabled"
+  }
+}

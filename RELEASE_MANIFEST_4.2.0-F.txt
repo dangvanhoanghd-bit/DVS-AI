@@ -1,0 +1,4 @@
+DVS AI Alpha 4.2.0-F
+Edition: Research Dataset Lineage & Provenance Explorer
+Frozen Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Boundary: read-only, descriptive-only, no tuning, no execution authority

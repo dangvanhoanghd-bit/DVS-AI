@@ -1,0 +1,12 @@
+{
+  "build_id": "RC6.4.7H-r2-IR-01A-r5-TRACKED-QOBJECT-CAUSAL-CORRELATION",
+  "app_version": "RC6.4.7H-r2-IR-01A-r5-TRACKED-QOBJECT-CAUSAL-CORRELATION",
+  "files": {
+    "dvs_ai/app.py": "e61f3b6daa5857c5edcfde52d12795fc673bc8ebe1071130295bb65b57df3a70",
+    "dvs_ai/diagnostics/shutdown_probe.py": "f106c99b94f62cb18beb0726528d10cf12077a1afa3a22ea463f22e419989948",
+    "dvs_ai/version.py": "63cfb5edaceeffc7dd664bf0313dfd931d692d942bc32db351d862f2739bd0e7",
+    "IR-01A-r5_TRACKED_QOBJECT_CAUSAL_CORRELATION.md": "1cb3b9cf54424be078b51e6c2f9789f994bddca63571a8c3042873cbc7fd3cfe",
+    "IR-01A-r5_BUILD_REPORT.json": "f57981e4d199ec81a7f79cd2ac68efb3eab731dc7ac0fdb733b06f45c4c84cc8"
+  },
+  "notes": "IR-01A-r5 observe-only causal correlation instrumentation; Decision Engine unchanged."
+}

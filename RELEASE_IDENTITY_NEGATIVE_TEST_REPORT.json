@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "tamper_one_source_byte",
+      "status": "PASS",
+      "observed_errors": [
+        "hash mismatch: dvs_ai/app.py"
+      ]
+    },
+    {
+      "name": "remove_manifest_entry",
+      "status": "PASS",
+      "observed_errors": [
+        "missing manifest entry: dvs_ai/runtime/gui_event_loop_forensics.py",
+        "untracked critical files: ['dvs_ai/runtime/gui_event_loop_forensics.py']"
+      ]
+    },
+    {
+      "name": "stale_build_id",
+      "status": "PASS",
+      "observed_errors": [
+        "stale build_id",
+        "BUILD_ID.txt and APP_VERSION disagree"
+      ]
+    },
+    {
+      "name": "wrong_app_version",
+      "status": "PASS",
+      "observed_errors": [
+        "wrong app_version"
+      ]
+    },
+    {
+      "name": "untracked_critical_file",
+      "status": "PASS",
+      "observed_errors": [
+        "missing manifest entry: dvs_ai/ui/truth_dashboard.py",
+        "untracked critical files: ['dvs_ai/ui/truth_dashboard.py']"
+      ]
+    }
+  ]
+}

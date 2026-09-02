@@ -1,0 +1,13 @@
+{
+  "version": "4.1.0-H",
+  "baseline": "4.1.0-G",
+  "feature": "Integrity History & Incident Ledger",
+  "tests": "719 passed",
+  "compileall": "PASS",
+  "headless_widget": "PASS",
+  "engine_python_files": 27,
+  "engine_changed": [],
+  "decision_engine_md5": "72cf7d54e1ed6369400683358da8c0ef",
+  "canonical_db_mode": "read-only",
+  "ledger_db": "data/dvs_integrity_ledger.db"
+}

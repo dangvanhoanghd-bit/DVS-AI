@@ -1,0 +1,6 @@
+DVS AI Alpha 4.2.2 — Scan Runtime Resource Lifecycle Fix
+Baseline: 4.2.1 Audit Hardening Release
+Changed runtime file: dvs_ai/ui/main_window.py
+New test: tests/test_v422_scan_runtime_resource_lifecycle.py
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Execution: PAPER-only; live execution disabled

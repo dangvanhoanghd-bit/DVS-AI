@@ -1,0 +1,14 @@
+{
+  "build_id": "RC6.4.7H-r2-GUI-PERFORMANCE-CANDIDATE-V2.4.2",
+  "scope": [
+    "lazy primary dashboard/detail after first paint",
+    "conditional finalization sort/index rebuild",
+    "auto-paper per-item operation forensics",
+    "system suspend classification",
+    "Qt handler installation evidence",
+    "identity closure"
+  ],
+  "decision_engine_frozen": true,
+  "paper_trade_frozen": true,
+  "runtime_acceptance": "PENDING_BURN_IN"
+}

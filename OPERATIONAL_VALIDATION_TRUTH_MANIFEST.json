@@ -1,0 +1,10 @@
+{
+  "version": "2.31.0",
+  "edition": "Operational Validation Platform",
+  "engines": ["AIHealth", "DataCoverage", "ConfidenceDistribution", "RegimeValidation", "OperationalAlertCenter"],
+  "observe_only": true,
+  "main_immutable": true,
+  "testnet_locked": true,
+  "live_execution_enabled": false,
+  "qt_runtime_smoke": "NOT_RUN_PYSIDE6_MISSING"
+}

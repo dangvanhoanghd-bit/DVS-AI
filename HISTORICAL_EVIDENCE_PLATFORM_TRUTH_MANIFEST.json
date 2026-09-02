@@ -1,0 +1,40 @@
+{
+  "release": "DVS AI Alpha 2.29.3",
+  "edition": "Historical Evidence Platform Complete",
+  "claims": [
+    {
+      "claim": "Unified candidate dossier joins lifecycle, performance, readiness and promotion evidence",
+      "status": "VERIFIED",
+      "implementation": "dvs_ai/services/historical_evidence_repository.py",
+      "tests": ["tests/test_v2293_historical_evidence_platform_completion.py"]
+    },
+    {
+      "claim": "Historical integrity audit detects broken lifecycle/snapshot/readiness references",
+      "status": "VERIFIED",
+      "implementation": "HistoricalEvidenceRepository.audit_integrity",
+      "tests": ["test_integrity_audit_detects_orphan_readiness_event"]
+    },
+    {
+      "claim": "Archived candidates retain lifecycle and performance history",
+      "status": "VERIFIED",
+      "tests": ["test_unified_dossier_and_archive_preserve_history"]
+    },
+    {
+      "claim": "Dashboard V2 displays persisted comparison, integrity and lifecycle/readiness detail",
+      "status": "VERIFIED_WITH_RUNTIME_DEPENDENCY_LIMITATION",
+      "implementation": "dvs_ai/ui/truth_dashboard.py",
+      "limitation": "PySide6 runtime smoke test requires desktop dependency"
+    },
+    {
+      "claim": "Historical evidence layer cannot apply candidates, mutate MAIN or invoke execution",
+      "status": "VERIFIED",
+      "tests": ["test_dashboard_v2_is_observe_only_and_shows_integrity_comparison"]
+    }
+  ],
+  "safety": {
+    "main_immutable": true,
+    "auto_promotion": false,
+    "testnet": false,
+    "live_execution": false
+  }
+}

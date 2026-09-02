@@ -1,0 +1,19 @@
+{
+  "candidate": "RC6.4.7H-r2-GUI-PERFORMANCE-CANDIDATE-V2",
+  "source_checks": {
+    "history_worker": true,
+    "paper_worker": true,
+    "sqlite_inside_history_slot": true,
+    "sqlite_inside_paper_slot": true,
+    "generation_per_submit": true,
+    "stale_rejection": true,
+    "latest_request_pending": true,
+    "gui_budget_25": true,
+    "chunked_history": true,
+    "chunked_paper": true,
+    "decision_engine_unchanged": true
+  },
+  "all_pass": true,
+  "runtime_status": "PENDING",
+  "production_approval": "NOT_GRANTED"
+}

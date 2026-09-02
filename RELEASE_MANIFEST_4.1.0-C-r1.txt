@@ -1,0 +1,19 @@
+DVS AI Alpha 4.1.0-C-r1 Release Manifest
+
+Baseline: DVS AI Alpha 4.1.0-C
+Merged source: DVS AI Alpha 4.1.0-B-r2 Live Episode Capture
+Tests: 704 passed
+Compileall: PASS
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Engine source files changed from 4.1.0-C: 0
+
+Key file SHA-256:
+809f18d6f23d551e9ba8cba918dc8d572016c190e88f8bc0d31fb85874742891  START_DVS_AI.bat
+f4ff400dbf8fc49f7083eef5f90b5f875a2ae32689d21867ab618ad1805adf7b  dvs_ai/version.py
+ceb7503b039cb8c64fef1205c495410e05e21c4d138cf7c5aeb2b87964c588c1  dvs_ai/app.py
+c59e1c65ff79e69b803934a8658036f1ea3dfd77d60092eb51195665f16b7c71  dvs_ai/ui/main_window.py
+aeb64151d924415bc77a1584f8d8c3a70ea1dafda2a7600131e24b949b22f17b  dvs_ai/services/live_episode_capture.py
+cb3cbda1f5287b0f74bb0982b6caf08427b4d789fb2a0c1c10a1c5c58914459c  dvs_ai/services/outcome_infrastructure.py
+f5c15a6b641f54c81b96153653f20f7d0c202990af49813481b903eb9bf32a1f  tests/test_v410c_r1_live_episode_capture.py
+2fdd7d3a9661abbd666279b25843c3a3add0782f79ddf51bbdc33cede40c7d37  EXPORT_OUTCOME_ANALYTICS.py
+545c5784d0be5c2a6b317078a5b5dd307cd9b33906ff3f649869fa0f2b62ff46  EXPORT_OUTCOME_ANALYTICS.bat

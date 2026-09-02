@@ -1,0 +1,12 @@
+{
+  "build_id": "RC6.4.7H-r2-GUI-PERFORMANCE-CANDIDATE-V2.4.1a",
+  "compile_all": "PASS",
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "hotfix": "Move object_census_setup startup timing call from LearningRefreshWorker.__init__ to MainWindow.__init__",
+  "scope": [
+    "startup crash hotfix only"
+  ],
+  "decision_engine_changed": false,
+  "paper_trade_path_changed": false,
+  "runtime_effectiveness": "PENDING"
+}

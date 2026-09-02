@@ -1,0 +1,16 @@
+RC6.4.7E-r1 INITIALIZATION ORDER STARTUP FIX
+
+Build ID: RC6.4.7E-r1-INITIALIZATION-ORDER-STARTUP-FIX
+App version: 4.3.0E-3-QBP-4-RC7-BETA4A-RC6.4.7E-r1
+
+Scope:
+- Move self._runtime_session_id assignment immediately after QMainWindow construction.
+- Remove the later duplicate assignment.
+- Add a static regression test proving assignment precedes every read in MainWindow.__init__.
+- No Decision Engine or retention-owner logic changes.
+
+Verification:
+- Python compileall: PASS
+- Focused tests: 18/18 PASS
+- Runtime GUI smoke test in build container: NOT EXECUTED (PySide6 unavailable in container).
+- Decision Engine SHA-256: 00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce

@@ -1,0 +1,168 @@
+--- /mnt/user-data/uploads/app.py	2026-08-02 13:35:37.271441000 +0000
++++ /home/claude/app_r2a.py	2026-08-02 14:00:14.524942056 +0000
+@@ -1,5 +1,5 @@
+ from PySide6.QtWidgets import QApplication
+-from PySide6.QtCore import qInstallMessageHandler
++from PySide6.QtCore import qInstallMessageHandler, QCoreApplication, QEvent
+ from dvs_ai.runtime.gui_event_loop_forensics import InstrumentedApplication
+ from dvs_ai.runtime.qthread_lifecycle_registry import install_qthread_registry
+ install_qthread_registry()
+@@ -45,6 +45,22 @@
+     return digest.hexdigest()
+ 
+ 
++def _is_valid_wrapper(obj):
++    # S4.1.2-r2A (instrumentation only, no behavior change): report whether
++    # the underlying C++ QObject behind a Python wrapper is still alive.
++    # shiboken6.isValid() is the public, documented way to ask this without
++    # touching the object itself. Any failure (object not a QObject wrapper,
++    # shiboken6 unavailable, etc.) is reported as None rather than raising,
++    # so this can never change control flow or crash the shutdown path.
++    if obj is None:
++        return None
++    try:
++        import shiboken6
++        return bool(shiboken6.isValid(obj))
++    except Exception:
++        return None
++
++
+ def _write_runtime_code_identity() -> None:
+     project_root = Path(__file__).resolve().parent.parent
+     relative_files = (
+@@ -167,6 +183,16 @@
+         live_episode_capture=live_episode_capture_runner,
+     )
+     shutdown_probe.register_object("main_window", window)
++    # S4.1.2-r2A (instrumentation only): record the moment window's C++
++    # object is actually destroyed, if it ever is, before interpreter exit.
++    try:
++        window.destroyed.connect(
++            lambda *_: shutdown_probe.mark("main_window_destroyed_signal")
++        )
++    except Exception as _exc:
++        shutdown_probe.mark(
++            "main_window_destroyed_probe_failed", error=repr(_exc)
++        )
+     for _name in (
+         "_history_prepare_thread", "_history_prepare_worker",
+         "_paper_prepare_thread", "_paper_prepare_worker",
+@@ -236,6 +262,18 @@
+         parent=window,
+     )
+     shutdown_probe.register_object("runtime_telemetry_exporter", telemetry)
++    # S4.1.2-r2A (instrumentation only): record the moment telemetry's C++
++    # object is actually destroyed, if it ever is, before interpreter exit.
++    # Guarded because we have not independently confirmed
++    # RuntimeTelemetryExporter is a QObject subclass with a destroyed signal.
++    try:
++        telemetry.destroyed.connect(
++            lambda *_: shutdown_probe.mark("runtime_telemetry_destroyed_signal")
++        )
++    except Exception as _exc:
++        shutdown_probe.mark(
++            "runtime_telemetry_destroyed_probe_failed", error=repr(_exc)
++        )
+     telemetry.start()
+     shutdown_probe.mark("qt_event_loop_enter")
+     try:
+@@ -245,6 +283,14 @@
+         return exit_code
+     finally:
+         shutdown_probe.mark("app_finally_enter")
++        # S4.1.2-r2A (instrumentation only): snapshot whether window/telemetry
++        # C++ objects are still alive at the moment we enter finally, i.e.
++        # immediately after app.exec() returns and before any teardown here.
++        shutdown_probe.mark(
++            "root_wrapper_validity_finally_enter",
++            window_valid=_is_valid_wrapper(window),
++            telemetry_valid=_is_valid_wrapper(telemetry),
++        )
+         shutdown_probe.snapshot_threads("app_finally_enter")
+         shutdown_probe.snapshot_tracked_objects("app_finally_enter")
+         shutdown_probe.snapshot_application_qobjects("app_finally_enter")
+@@ -254,7 +300,84 @@
+         shutdown_probe.mark("order_flow_close_begin")
+         order_flow_runtime.close()
+         shutdown_probe.mark("order_flow_close_end")
++
++        # S4.1.2-r2B: deterministic root wrapper shutdown.
++        #
++        # r2A proved (RUNTIME VERIFIED) that window/telemetry are still
++        # valid Shiboken wrappers at both finally_enter and finally_exit,
++        # with application_qobject_census showing zero objects freed across
++        # the whole finally block, and no destroyed signal ever firing for
++        # either object. This block closes that gap.
++        #
++        # window.close() is intentionally NOT called here: MainWindow's
++        # closeEvent already ran earlier (qt_last_window_closed /
++        # qt_about_to_quit / qt_event_loop_exit already observed by the time
++        # we reach finally), and re-entering that complex closeEvent path
++        # would introduce a second, uncontrolled lifecycle variable. This
++        # block only schedules and drains the actual C++ destruction.
++        #
++        # telemetry is a genuine QObject child of window (parent=window),
++        # with its four QTimers parented to telemetry itself. Qt's
++        # parent-child ownership means destroying window's C++ object
++        # cascades to telemetry and its timers automatically; telemetry is
++        # therefore NOT deleted separately here.
++        shutdown_probe.mark(
++            "root_wrapper_delete_begin",
++            window_valid=_is_valid_wrapper(window),
++            telemetry_valid=_is_valid_wrapper(telemetry),
++        )
++        try:
++            window.deleteLater()
++            shutdown_probe.mark("root_wrapper_delete_posted")
++        except Exception as _exc:
++            shutdown_probe.mark(
++                "root_wrapper_delete_posted_failed", error=repr(_exc)
++            )
++
++        # app.exec() has already returned by this point, so nothing is
++        # pumping the event loop; the DeferredDelete event posted by
++        # deleteLater() will never be processed unless we drain it
++        # ourselves. Bounded by a deadline and an iteration counter so this
++        # can never hang shutdown indefinitely.
++        deadline = time.monotonic() + 1.0
++        drain_iterations = 0
++        while _is_valid_wrapper(window) is True and time.monotonic() < deadline:
++            drain_iterations += 1
++            QCoreApplication.sendPostedEvents(None, QEvent.Type.DeferredDelete)
++            app.processEvents()
++
++        _window_valid_after_drain = _is_valid_wrapper(window)
++        _telemetry_valid_after_drain = _is_valid_wrapper(telemetry)
++        shutdown_probe.mark(
++            "root_wrapper_delete_end",
++            drain_iterations=drain_iterations,
++            window_valid=_window_valid_after_drain,
++            telemetry_valid=_telemetry_valid_after_drain,
++        )
++
++        if _window_valid_after_drain is False and _telemetry_valid_after_drain is False:
++            window = None
++            telemetry = None
++            shutdown_probe.mark("root_python_references_released")
++        else:
++            shutdown_probe.mark(
++                "root_wrapper_delete_timeout",
++                window_valid=_window_valid_after_drain,
++                telemetry_valid=_telemetry_valid_after_drain,
++            )
++
+         shutdown_probe.snapshot_threads("app_finally_exit")
+         shutdown_probe.snapshot_tracked_objects("app_finally_exit")
+         shutdown_probe.snapshot_application_qobjects("app_finally_exit")
++        # S4.1.2-r2A (instrumentation only): snapshot again right before we
++        # actually leave main() / finally and control returns to run.py,
++        # which is the last point before CPython begins Py_FinalizeEx.
++        # Reuses the values already captured after the r2B drain loop above
++        # (not re-checked here) because window/telemetry may already be None
++        # locally at this point if root_python_references_released fired.
++        shutdown_probe.mark(
++            "root_wrapper_validity_finally_exit",
++            window_valid=_window_valid_after_drain,
++            telemetry_valid=_telemetry_valid_after_drain,
++        )
+         shutdown_probe.mark("app_finally_exit")

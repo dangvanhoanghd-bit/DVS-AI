@@ -1,0 +1,9 @@
+{
+  "version":"2.27.0",
+  "claim":"Human-gated SHADOW-only promotion with backtest, backup and audit",
+  "verified":true,
+  "main_immutable":true,
+  "live_execution_disabled":true,
+  "auto_main_promotion":false,
+  "tests":["tests/test_v2270_shadow_promotion_workflow.py"]
+}

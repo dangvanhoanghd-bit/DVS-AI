@@ -1,0 +1,15 @@
+{
+  "release": "2.32.3",
+  "edition": "Confidence & Gap Framework",
+  "protocol_version": "1.0",
+  "observe_only": true,
+  "main_immutable": true,
+  "testnet_enabled": false,
+  "live_execution_enabled": false,
+  "claims": [
+    "confidence consumes frozen evidence artifact",
+    "gap planner has no storage access",
+    "recommendation mapper has no statistical logic",
+    "underpowered and unobservable contexts remain blocked"
+  ]
+}

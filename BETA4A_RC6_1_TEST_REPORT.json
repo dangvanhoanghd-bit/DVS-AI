@@ -1,0 +1,7 @@
+{
+  "release": "BETA4A_RC6.1",
+  "compile": "PASS",
+  "focused_tests": "2 passed",
+  "collector_smoke": "PASS",
+  "decision_engine_changed": false
+}

@@ -1,0 +1,14 @@
+{
+  "build_id": "RC6.4.7H-r2-GUI-PERFORMANCE-CANDIDATE-V2.3.1",
+  "status": "SOURCE_VALIDATED_RUNTIME_PENDING",
+  "checks": {
+    "compileall": "PASS",
+    "ast_parse": "PASS",
+    "release_identity_verify": "PASS",
+    "negative_identity_tests": "5/5 PASS",
+    "decision_engine_frozen": "PASS"
+  },
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "runtime_effectiveness": "PENDING",
+  "production_approval": "NOT GRANTED"
+}

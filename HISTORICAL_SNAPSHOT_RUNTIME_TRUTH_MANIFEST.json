@@ -1,0 +1,17 @@
+{
+  "version": "2.29.1",
+  "feature": "Historical Snapshot Runtime Integration",
+  "claims": {
+    "eligible_only": true,
+    "append_only": true,
+    "deduplicated": true,
+    "paper_outcome_triggered": true,
+    "main_immutable": true,
+    "live_execution_enabled": false
+  },
+  "limitations": [
+    "history starts after deployment",
+    "no automatic promotion",
+    "no Testnet or Live execution"
+  ]
+}

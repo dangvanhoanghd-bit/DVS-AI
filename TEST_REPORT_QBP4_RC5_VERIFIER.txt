@@ -1,0 +1,106 @@
+{
+  "qbp3": {
+    "authority_granted": false,
+    "blockers": [
+      "QUALIFIED_OUTCOMES_BELOW_300:0",
+      "MULTIPLE_COMPARISON_P_VALUES_MISSING",
+      "STABILITY_WARNING:QUALIFIED_OUTCOMES_BELOW_300:0"
+    ],
+    "bootstrap": {
+      "ci_high": null,
+      "ci_low": null,
+      "confidence_level": 0.95,
+      "iterations": 2000,
+      "mean_realized_r": null,
+      "method": "PERCENTILE_BOOTSTRAP_MEAN_R_V1",
+      "n": 0,
+      "probability_mean_positive": null,
+      "seed_sha256": "32e42c992c1807ab591f9e3aca6cba76d571acb6220fc040f7c520e0a95acbb8",
+      "state": "LOCKED_INSUFFICIENT_DATA"
+    },
+    "capabilities": {
+      "bootstrap": false,
+      "multiple_comparison": false,
+      "stability": false
+    },
+    "dataset_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "generated_at": "2026-07-22T12:22:21.137519+00:00",
+    "multiple_comparison": {
+      "alpha": 0.05,
+      "hypothesis_count": 0,
+      "items": [],
+      "method": "HOLM_BONFERRONI_V1",
+      "state": "LOCKED_NO_HYPOTHESES"
+    },
+    "production_or_execution_authority": false,
+    "qualified_outcomes": 0,
+    "schema": "DVS_QBP3_STATISTICAL_VALIDATION_V1",
+    "self_sha256": "062e590fcaf318dbd4c4f93eb119e9a51e157f5478edbb42a24c1c7c92396bf1",
+    "stability": {
+      "direction_coverage": {},
+      "mean_dispersion": null,
+      "method": "CHRONOLOGICAL_WINDOWS_V1",
+      "n": 0,
+      "positive_window_fraction": null,
+      "regime_coverage": {},
+      "state": "LOCKED_INSUFFICIENT_DATA",
+      "warnings": [
+        "QUALIFIED_OUTCOMES_BELOW_300:0"
+      ],
+      "windows": []
+    },
+    "state": "QBP3_LOCKED_OR_REVIEW_REQUIRED"
+  },
+  "qbp4": {
+    "authority_granted": false,
+    "blockers": [
+      "MINIMUM_500_QUALIFIED_OUTCOMES",
+      "QBP3_VALIDATION_READY",
+      "BOOTSTRAP_READY",
+      "STABILITY_CLEAR",
+      "MULTIPLE_COMPARISON_READY"
+    ],
+    "evidence_bundle_sha256": "106999fa9593df332ab28133e02ccdf2a5c4b23883de49561544bc8f9edca1b9",
+    "generated_at": "2026-07-22T12:22:21.137604+00:00",
+    "human_signoff_required": true,
+    "paper_authority_handover_eligible": false,
+    "paper_authority_handover_granted": false,
+    "production_or_execution_authority": false,
+    "qualified_outcomes": 0,
+    "review_items": [
+      {
+        "evidence": "0",
+        "name": "MINIMUM_500_QUALIFIED_OUTCOMES",
+        "passed": false
+      },
+      {
+        "evidence": "062e590fcaf318dbd4c4f93eb119e9a51e157f5478edbb42a24c1c7c92396bf1",
+        "name": "QBP3_VALIDATION_READY",
+        "passed": false
+      },
+      {
+        "evidence": "LOCKED_INSUFFICIENT_DATA",
+        "name": "BOOTSTRAP_READY",
+        "passed": false
+      },
+      {
+        "evidence": "LOCKED_INSUFFICIENT_DATA",
+        "name": "STABILITY_CLEAR",
+        "passed": false
+      },
+      {
+        "evidence": "LOCKED_NO_HYPOTHESES",
+        "name": "MULTIPLE_COMPARISON_READY",
+        "passed": false
+      },
+      {
+        "evidence": "false/false",
+        "name": "AUTHORITY_REMAINS_LOCKED",
+        "passed": true
+      }
+    ],
+    "schema": "DVS_QBP4_HANDOVER_REVIEW_V1",
+    "self_sha256": "688d60ffe675971022e7575911bf12d5acc111f9467955ed61d4ef8d6423c781",
+    "state": "QBP4_NOT_ELIGIBLE"
+  }
+}

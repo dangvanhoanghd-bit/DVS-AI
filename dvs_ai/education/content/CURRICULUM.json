@@ -1,0 +1,667 @@
+{
+  "schema_version": "dvs.education.curriculum.v1",
+  "curriculum_version": "EDU01-LAYER-A-v0.1",
+  "content_class": "GENERAL_MARKET_KNOWLEDGE",
+  "lesson_count": 94,
+  "lessons": [
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-01_futures_foundations",
+      "content_sha256": "b7eba70f576cd34513839a7b1c72514968d9d01efe59554e2aa35af9bd9da18a",
+      "position": 1
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-02_leverage_and_margin",
+      "content_sha256": "335afa7c79830a21f08b137ac74082447a8be9b7bbf29d984affd0140dbba357",
+      "position": 2
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-03_liquidation",
+      "content_sha256": "73c7070b5a232388859bd725dc2777723e143e9f8af23205fd4fa254e271db7d",
+      "position": 3
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-04_stop_loss_and_invalidation",
+      "content_sha256": "0e1a52ecf3c6be7bbeabd280d35d1e70e47f1dbdbc843280d022c4181051e46c",
+      "position": 4
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-05_risk_reward_and_r_multiple",
+      "content_sha256": "a63040a09a383b09e283e61f28dabf78d91556f31c21702b014b5e081d5012b4",
+      "position": 5
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-06_position_sizing",
+      "content_sha256": "8872796ca75e883a50a707dcaa08896a41f312540766ff8a9e95e57505bc8265",
+      "position": 6
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-07_correlation_and_concentration",
+      "content_sha256": "a27fdb2466ff02f629495e41a98d0b822b597f0c6dbf31fb40db0abe3b503fd8",
+      "position": 7
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-08_funding_oi_traps",
+      "content_sha256": "198db5a71166be18f77b30e549f5d3a12e643fd5892d08e558c32384ab54e7e3",
+      "position": 8
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-09_costs_slippage_funding",
+      "content_sha256": "fb6c4cd28230e3602e044b98dff014c4661ba7bd8aa42b43f948f110adb7dc1f",
+      "position": 9
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-10_beginner_failure_modes",
+      "content_sha256": "b6f5a19ce23930f669fa5fd82b145cdb72d3f572692b5ec47d6ce7a6aae7ad57",
+      "position": 10
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-11_integrated_scenarios",
+      "content_sha256": "07a45e3ecb7f16a94218a8eef4f2e75ee956f5e2d5be6f1dc2ce4047d44fed88",
+      "position": 11
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.4-08_crypto_risk_futures",
+      "lesson_id": "v0.4-08_crypto_risk_futures-12_final_literacy_check",
+      "content_sha256": "0fc8d046fccc85773b3c410c855975ce3b27aa60fc465d95096d0eaa0fe7be7a",
+      "position": 12
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-01_structure_foundations",
+      "content_sha256": "b4fbcad0137d6103cad5b5599fa82023291037162a7f109e4349d8e3a2e1dbe1",
+      "position": 13
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-02_support_resistance_zones",
+      "content_sha256": "edc8a7c15e33e3c5d67c1da00a86fd82aed6c0d8d8b3626ee68de32b8c2620b8",
+      "position": 14
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-03_breakout_retest_rejection",
+      "content_sha256": "ef3d3a1cf6c82282dc1b4787f5e4f8639df7ffea4bdbd63fd9b679625b2c39e1",
+      "position": 15
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-04_volume",
+      "content_sha256": "a630fc7693315543707353facdd5f13e6f2205e8256fe174822b4608468364f0",
+      "position": 16
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-05_volatility_atr",
+      "content_sha256": "2174e454e83c2c7d4d055e4325692e2f5efdc16ffb57f7056e8aab9f72a37785",
+      "position": 17
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-06_ema_trend_tools",
+      "content_sha256": "4f632dce0426c2f29b12d456bc089694736791c9e4555476326435d50ba4eed9",
+      "position": 18
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-07_rsi",
+      "content_sha256": "da10020bfc32b138d12dbef3a47e5e79b60f693770be525270401a87a5353b9d",
+      "position": 19
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-08_macd",
+      "content_sha256": "5dd2d7f7032923242f709f0b836165ac74f15da6da08519d13dbff9980daad2d",
+      "position": 20
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-09_multi_timeframe_context",
+      "content_sha256": "beac45dc14b56382b29e1124c209f4d72681ab2e08268484c949685a742eb4ec",
+      "position": 21
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-10_liquidity_wicks_sweeps",
+      "content_sha256": "0de910fb3508771f28b0b5bfa504b4092114a7d9b6a9e200d4f96dbacb4ad6f4",
+      "position": 22
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-11_confluence_and_double_counting",
+      "content_sha256": "196945b1e12c82f1153853e068fa264a6ff7ba19c3990b912780f92ff16333d1",
+      "position": 23
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-12_evidence_reasoning",
+      "content_sha256": "03941bde52548e20492ac2880dc7f51e7e1480cef2322fc434d3ec27a1f0bae7",
+      "position": 24
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-13_integrated_scenarios",
+      "content_sha256": "9989210a2feba491530026d914cd842350b50dccb54ceaeb0fdcf11fcb7a8080",
+      "position": 25
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.5-10_market_structure_technical",
+      "lesson_id": "v0.5-10_market_structure_technical-14_final_literacy_check",
+      "content_sha256": "9edacab26eccd8e6eca9d4d4bdc89b2269aa38fe8a23b03c35e2b9d8abb902e4",
+      "position": 26
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-01_from_signal_to_decision",
+      "content_sha256": "d49aaf92f9ecbcf503c3843030485222e070ed36aa30e5f031fc46292f633455",
+      "position": 27
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-02_evidence_strength",
+      "content_sha256": "9fcea8bc759bf5a9649819c6ffead4aba9903d8f0c6af14416c001b9a05336a8",
+      "position": 28
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-03_independence_and_double_counting",
+      "content_sha256": "c23f929eace07885cdc2fcf992181a594478673cfdafe471815637d2749773c7",
+      "position": 29
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-04_missing_stale_conflicting_evidence",
+      "content_sha256": "43bf15c618dfa2a432517daf2ddbbe071879d792323781d42dd8d8927c8fcce1",
+      "position": 30
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-05_hypothesis_and_falsifiability",
+      "content_sha256": "483f7c8936e5543616fa6c2e7a1e348584347d454bb94d01c562c0ab8c2a06c3",
+      "position": 31
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-06_confidence_and_calibration",
+      "content_sha256": "836efb6ca5b77cf5324d148d7db9c0da0d11de319c669ef7544d5c41e2030996",
+      "position": 32
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-07_uncertainty",
+      "content_sha256": "2e6a5f42e3e167dc62b375206516402cb48df582731e76a8fa518ecb42e3173c",
+      "position": 33
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-08_base_rates_and_sample_size",
+      "content_sha256": "ae3fe1fc5408e5f6ca5a3ec054aa7225a98f98c4d0442a88e4e3eed5fbe1a020",
+      "position": 34
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-09_process_vs_outcome",
+      "content_sha256": "63a8986368882adfe3f5de592c7eaa251795f644053c4fee98df42bd5fbcc790",
+      "position": 35
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-10_hindsight_and_post_hoc_reasoning",
+      "content_sha256": "d4abe1f82e1659a025d19ec609bfea3d7f25eb1a36072df3fb15a2492d5ee98e",
+      "position": 36
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-11_decision_states",
+      "content_sha256": "3c82794ccff1656b8946156fa8636b8c545678ef158f52eecf74fe2943efc408",
+      "position": 37
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-12_complexity_and_simplicity",
+      "content_sha256": "4368b5c0d2aefc9cae2d3a3afb1a3315ad45a971daa4ba3eae0b7105ea88ae68",
+      "position": 38
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-13_decision_journaling",
+      "content_sha256": "4f18488124264a5b5509027b0d42cfa882258a6bcb00e6347faa677cf4351e4e",
+      "position": 39
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-14_integrated_scenarios",
+      "content_sha256": "a5c2a0ed38ac504ddec55c5441d63db6333c0eb81d5d171236c242adec50d784",
+      "position": 40
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.6-12_decision_evidence",
+      "lesson_id": "v0.6-12_decision_evidence-15_final_literacy_check",
+      "content_sha256": "c8a3730d2f699a5cee06d91223d63acf14fb7e5b2ee9a30bfffd578bfdc2d7eb",
+      "position": 41
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-01_thesis_vs_trade_plan",
+      "content_sha256": "0a442b93fa31248affe301bc6dffdcd26538f8ce5d3d284672a724e3dca5f995",
+      "position": 42
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-02_entry_conditions",
+      "content_sha256": "5e7b3872c1d88afa1e3feb7d44bf8d2fbe60e7ce1ccb238895b4431117b63261",
+      "position": 43
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-03_invalidation_first",
+      "content_sha256": "e61b0fcc1d365c392034f253edf931207a99501aae655d52fe4772123f6aadb0",
+      "position": 44
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-04_entry_stop_target_coherence",
+      "content_sha256": "f00110c120018bbf1f42bb7de09762f458e743134f04dcc092fcce0aa95bf95f",
+      "position": 45
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-05_order_types_and_execution",
+      "content_sha256": "d0943c52b9a9ffbe7a190c3a3707dcf8d0b7b86ec456c9a7e903eb8d8e86c488",
+      "position": 46
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-06_slippage_spread_liquidity",
+      "content_sha256": "d237f379aa79ac21d4e75226d0c42971a7bb3947e54c0e652f5613a1f933972c",
+      "position": 47
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-07_position_size_from_risk",
+      "content_sha256": "b2a5fbbcc860d1609991d3791bd6cc51ce47ca6f9e4d1762a16c092b930bbe4c",
+      "position": 48
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-08_leverage_execution_interaction",
+      "content_sha256": "714489bcc217f9ae1fd447cbc474dadbc4b269ac0b83357d7cb8f301dd78fcb2",
+      "position": 49
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-09_partial_exits_and_management",
+      "content_sha256": "77f9ea2ddd033b8c339784b875d9077c94831210e61173e742b9dffa01ea36ee",
+      "position": 50
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-10_breakeven_and_trailing",
+      "content_sha256": "8cdefa545f76d1ca96a7791dee71733fae0ac084a38e99e6d38b7e955964d781",
+      "position": 51
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-11_time_and_event_risk",
+      "content_sha256": "a47fe63a809cc6e0f36620984643a9d858971f8bc69cfb9d373d2b1d912670f8",
+      "position": 52
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-12_no_trade_and_cancellation",
+      "content_sha256": "d73744509e06d571dbd20bee8977bbb8563791936a622c47d2f3603ce3294b14",
+      "position": 53
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-13_execution_discipline",
+      "content_sha256": "a8332ab7420e6fd45127d79160ba19528c087c59cfc69a430ce1a7891da57e92",
+      "position": 54
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-14_pre_trade_checklist",
+      "content_sha256": "1fdbb7cb0352dcd17875a8b0d22360d21c9e0f3ce2dd51e946839c0e0af8fbba",
+      "position": 55
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-15_post_trade_review",
+      "content_sha256": "b36f22082b4a74d61c9db0fabd04953cffec81e70633c019ea56dea4651ef342",
+      "position": 56
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.7-15_trade_planning",
+      "lesson_id": "v0.7-15_trade_planning-16_integrated_scenarios",
+      "content_sha256": "cd0af0aa9726dd025d1fe456d9a35af40cde6fc019ace6aa73de66affbf01f25",
+      "position": 57
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-01_emotion_vs_information",
+      "content_sha256": "09aa5f0e77db24e43eeb5d2fb5c30ad764d5c89544fdda4cf739e782a55edf3f",
+      "position": 58
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-02_fomo",
+      "content_sha256": "b78ec5932f183ee1149d233c784c0efca896d20656583f77c6825f485e4d8c34",
+      "position": 59
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-03_revenge_trading",
+      "content_sha256": "63dae8a7a94265748de5cf4266b394183c0e1037d319eb542cd5823d930909d5",
+      "position": 60
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-04_loss_aversion",
+      "content_sha256": "bee2ab49a8fa77454f609eda067a9c8eefe5a7b05dd01bd8dbe97316c8c21db1",
+      "position": 61
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-05_overconfidence",
+      "content_sha256": "1e6e09bb53e8a0e0e6ec8246de1e4374bd3b9c5069a5a1c92641b0166bd9ad90",
+      "position": 62
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-06_recency_bias",
+      "content_sha256": "71ef0af489bbcf525b57ad945f1d181e7c5c1b9ca4121ad2e52591fea4168f76",
+      "position": 63
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-07_confirmation_bias",
+      "content_sha256": "2d302bceed5348a6e3e328e736280b03dcadce2ab1e3568d25ff583fc84fa405",
+      "position": 64
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-08_sunk_cost_and_escalation",
+      "content_sha256": "8be5ca29235f50c493d5d7c6d69f11eb3d44b9d3e994e475398224633ea5d49d",
+      "position": 65
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-09_outcome_bias",
+      "content_sha256": "183dc4c8ccfc1b098450a148dbc0c191a43a1760d1cd7d0b22b665d9704e2308",
+      "position": 66
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-10_hindsight_bias",
+      "content_sha256": "f12b90472ffd95874bf3dccb956fa22a90a89b497ef3a044b0cc523b1945bca2",
+      "position": 67
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-11_action_bias_and_overtrading",
+      "content_sha256": "f44f958dd5686b8f215a8e534131b7b4f2e71832b0abb1ccaf9f37d63725042a",
+      "position": 68
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-12_tilt_and_state_risk",
+      "content_sha256": "5a418160e151b40460faa7ad4f260a5cecc43892f06e1b21bf1de71eba37c6b0",
+      "position": 69
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-13_correlated_decisions",
+      "content_sha256": "2106ddbaead9447b3627f395956024c1e0d49e453b4f70aa48d68a494adee78a",
+      "position": 70
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-14_rule_drift",
+      "content_sha256": "70617b04ec4d28601b6fe1544ccfae4c55887f6b028f8c6d1fab65f87ac71c9e",
+      "position": 71
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-15_pause_protocol",
+      "content_sha256": "b8b4f23a05bd53db7aa4c7b5df37c6a644320a0c604b770be2e83a93523890a8",
+      "position": 72
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-16_streaks_and_discipline",
+      "content_sha256": "4fc98d0cac53e90e79d756cf7a70ad103d8c22ff9c38527c7210b2106bd43f59",
+      "position": 73
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.8-18_behavioral_discipline",
+      "lesson_id": "v0.8-18_behavioral_discipline-17_integrated_behavioral_scenarios",
+      "content_sha256": "82e832598a3f560179ed9b808ff63ce9b6b6b506f279f02cfa4f3a5a2b890222",
+      "position": 74
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-01_capital_preservation_first",
+      "content_sha256": "b61815064c9a83e375883f41b47b97eccbdfdf60c246892d3527c3069d733f46",
+      "position": 75
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-02_trade_risk_vs_portfolio_risk",
+      "content_sha256": "a0591ab4ec848f92f44b1b45c066847edfb1831827686128002da12c5a5d032e",
+      "position": 76
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-03_risk_budget",
+      "content_sha256": "ad0e452f84cc89da4265c2742d80c96449d4cd0f7a4caaa456f2ff221fd71120",
+      "position": 77
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-04_correlation",
+      "content_sha256": "9dd5ec19facb662c45cb356537ae1711d71e05628273a2117c499e755ed42a58",
+      "position": 78
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-05_hidden_concentration",
+      "content_sha256": "80a54e315201896c7056cf0de2a9232f0cd8936b78715d8cafb9ca65e0e067e3",
+      "position": 79
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-06_directional_exposure",
+      "content_sha256": "bbb2d902991b74be13a5a60cc34a87ad5e88c60db0a34af31dbb37194989e582",
+      "position": 80
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-07_gross_vs_net_exposure",
+      "content_sha256": "71cc60c42455b7935aa38be998c25880e980880dbb9167ee7ec673c52b41f72f",
+      "position": 81
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-08_leverage_stacking",
+      "content_sha256": "a628fb4fdf228be485e783e3b4c8dadbe31c163308da3883a1b0d2dbe0acdb7a",
+      "position": 82
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-09_margin_and_collateral_risk",
+      "content_sha256": "9e0a1dd83f8eb093e8323ef7b719fba266349d740e9f64034e7fd20d1389c389",
+      "position": 83
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-10_drawdown",
+      "content_sha256": "e3b730fc9ccc353d7ecef6df3441c15ffbd178744db21691182cdd66036aea41",
+      "position": 84
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-11_risk_of_ruin",
+      "content_sha256": "7c69fde4dc61e553b765b0f95b78a35c1fc1ceb1a6564ee1942fe93e30c7edf7",
+      "position": 85
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-12_volatility_and_size",
+      "content_sha256": "d91fe1e56d6c5d31d3a193dc710a45a499b52aaf18045626eef859e31a8793af",
+      "position": 86
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-13_liquidity_portfolio_risk",
+      "content_sha256": "1176ef6e30c30a7f6b0b5953fc3d86277e58ef153a3f8b0e28677240833fca61",
+      "position": 87
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-14_funding_and_carry",
+      "content_sha256": "1c1be3d8bb43277c666045ec0556548cf4cdea49f1d752135c4d3d25c22bdd65",
+      "position": 88
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-15_open_interest_and_crowding",
+      "content_sha256": "87fd0197d028be6e4fbc1f66dae09a0225faf5e55f81ef0284781f5b91e446c9",
+      "position": 89
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-16_tail_risk",
+      "content_sha256": "201d89438ce88afa10e16d7e41f85568925fb225463a1837dab9438343b738b8",
+      "position": 90
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-17_stress_test_thinking",
+      "content_sha256": "4948cf2396f1c2176e29b35504708491c0a4b2c9f8149cb8d8a7681a87b51cfe",
+      "position": 91
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-18_portfolio_no_trade",
+      "content_sha256": "2365241a5eb414b1867eef0b0bad0ba7769530a8e7ab4384c3983714f3099d38",
+      "position": 92
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-19_deleveraging",
+      "content_sha256": "f20c6893a2e4e702418dbb73b82f6817191eef51e43fa567198d2c37199529d9",
+      "position": 93
+    },
+    {
+      "curriculum_version": "EDU01-LAYER-A-v0.1",
+      "chapter_id": "v0.9-21_portfolio_risk",
+      "lesson_id": "v0.9-21_portfolio_risk-20_integrated_scenarios",
+      "content_sha256": "e2e20e40fd516313d1fb401a24ca47003192924ec88632ef6524e547dc7186a0",
+      "position": 94
+    }
+  ],
+  "curriculum_sha256": "470bfb7b18b71dc375027ece24bf7e6386d521496661cdcd3c0adc2d419430f7"
+}

@@ -1,0 +1,14 @@
+RC6.4.7E-r2 targeted owner counters
+
+Adds lightweight post-batch counters only; full heap census remains disabled by default.
+Telemetry: artifacts/runtime/targeted_owner_counters.jsonl
+Counters:
+- shadow_prepared_runs_count
+- shadow_paper_orders_count
+- shadow_ledger_run_count
+- shadow_release_run_total
+- shadow_discard_run_total
+- shadow_discarded_ledger_events_total
+- shadow_paper_orders_cleared_total
+
+Decision Engine unchanged.

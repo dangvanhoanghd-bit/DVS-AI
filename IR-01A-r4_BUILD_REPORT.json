@@ -1,0 +1,11 @@
+{
+  "build": "IR-01A-r4_DUMMYTHREAD_QT_MAPPING_FORENSICS",
+  "build_id": "RC6.4.7H-r2-IR-01A-r4-DUMMYTHREAD-QT-MAPPING-FORENSICS",
+  "changes": [
+    "CPython thread registry snapshots",
+    "DummyThread-to-QThread mapping at callback entry",
+    "Registry delta by ident/native_id",
+    "No registry mutation"
+  ],
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce"
+}

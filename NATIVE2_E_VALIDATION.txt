@@ -1,0 +1,10 @@
+NATIVE2-E validation
+
+- Python syntax compilation: PASS
+  - run.py
+  - dvs_ai/app.py
+  - dvs_ai/diagnostics/shutdown_probe.py
+- Decision Engine SHA-256 before/after: identical
+  00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce
+- Runtime Qt smoke test: NOT EXECUTED in packaging environment because PySide6 is not installed there.
+- ZIP integrity: verify after packaging.

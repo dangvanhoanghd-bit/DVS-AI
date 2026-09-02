@@ -1,0 +1,16 @@
+{
+  "patch": "Defect B Production Patch v4 — Cancellable Outcome Resolution",
+  "source_compile_pass": true,
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "modified_files": [
+    "dvs_ai/ui/outcome_resolution_coordinator.py",
+    "dvs_ai/services/outcome_tracker.py",
+    "dvs_ai/services/candidate_outcome_resolver.py",
+    "dvs_ai/services/paper_trade_service.py",
+    "dvs_ai/ui/main_window.py",
+    "dvs_ai/version.py"
+  ],
+  "shutdown_timeout_ms": 5000,
+  "telemetry": "artifacts/runtime/outcome_resolution_lifecycle.jsonl",
+  "runtime_status": "NOT YET VERIFIED"
+}

@@ -1,0 +1,13 @@
+DVS AI Alpha 4.1.0-B-r1
+Release type: metadata-only revision
+
+Changed files:
+- START_DVS_AI.bat
+- RELEASE_NOTES_4.1.0-B-r1.md
+- RELEASE_MANIFEST_4.1.0-B-r1.txt
+
+Validation:
+- pytest: 698 passed
+- compileall: passed
+- decision_engine.py MD5: 72cf7d54e1ed6369400683358da8c0ef
+- dvs_ai/engines aggregate: unchanged from uploaded 4.1.0-B baseline

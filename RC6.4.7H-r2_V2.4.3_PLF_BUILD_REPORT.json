@@ -1,0 +1,16 @@
+{
+  "build_id": "RC6.4.7H-r2-MARKET-CHART-NATIVE-PAINT-SAFETY-V2.4.3a",
+  "status": "SOURCE_VALIDATED_RUNTIME_PENDING",
+  "decision_engine_unchanged": true,
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "plf_architecture": "external_launcher_supervisor_process",
+  "features": [
+    "external subprocess supervision",
+    "signed/unsigned/hex exit-code normalization",
+    "Windows NTSTATUS cautious mapping",
+    "in-process atexit marker",
+    "faulthandler dump",
+    "per-session stdout/stderr capture",
+    "fsync JSONL evidence"
+  ]
+}

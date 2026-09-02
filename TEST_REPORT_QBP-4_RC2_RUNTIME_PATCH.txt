@@ -1,0 +1,19 @@
+DVS AI Alpha 4.3.0E-3-QBP-4-RC2
+Runtime Worker Lifecycle Hardening
+
+Compileall: PASS
+Focused lifecycle/release tests: 18 passed
+Full regression suite: 910 passed, 0 failed
+Official QBP-3/QBP-4 verifier: PASS (observe-only; 0 qualified outcomes)
+
+Runtime fix:
+- Removed unsafe dereference/disconnect of current_worker.run after native QObject deletion.
+- Relies on Qt automatic receiver-disconnection on QObject destruction.
+- Preserves stale completion protection.
+- Uses try/finally for fail-safe cycle-marker cleanup.
+
+Decision Engine unchanged.
+Frozen Decision Engine MD5:
+72cf7d54e1ed6369400683358da8c0ef
+
+Execution authority remains locked.

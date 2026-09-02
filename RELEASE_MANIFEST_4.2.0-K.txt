@@ -1,0 +1,6 @@
+DVS AI Alpha 4.2.0-K
+Research Governance Export & Independent Audit Bundle
+Frozen Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+New service: dvs_ai/services/research_governance_audit_bundle.py
+New UI: dvs_ai/ui/research_governance_audit_bundle_widget.py
+New tests: tests/test_v420k_research_governance_audit_bundle.py

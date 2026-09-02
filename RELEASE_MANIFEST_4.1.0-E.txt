@@ -1,0 +1,10 @@
+Release: DVS AI Alpha 4.1.0-E
+Baseline: 4.1.0-D Statistical Reliability & Effective Sample Size
+Feature: Read-only Statistical Diagnostics Dashboard
+Tests: 713 passed
+Compileall: passed
+Dashboard headless smoke test: passed
+Decision Engine frozen: yes
+Automatic tuning: disabled
+Exchange order capability: absent
+Engine source files changed: 0

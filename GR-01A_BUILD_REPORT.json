@@ -1,0 +1,22 @@
+{
+  "build_id": "RC6.4.7H-r2-GR-01A-MEASUREMENT-CALLBACK-DECOMPOSITION",
+  "baseline": "IR-01A-r7 CLEAN_EXIT",
+  "compile_status": "PASS",
+  "instrumentation_only": true,
+  "output": "artifacts/runtime/gr01_gui_commit_forensics.jsonl",
+  "events": [
+    "scan_progress_gui_commit",
+    "signal_record_gui_commit",
+    "stream_flush_chunk",
+    "selected_detail_commit",
+    "finalization_finished_callback",
+    "scan_result_side_effect_drain"
+  ],
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "static_checks": {
+    "one_aggregate_record_per_callback_path": true,
+    "disk_io_in_hot_loops": false,
+    "async_writer": true,
+    "latest_behavior_unchanged": true
+  }
+}

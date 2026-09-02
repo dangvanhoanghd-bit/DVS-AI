@@ -1,0 +1,32 @@
+{
+  "version": "2.25.4-alpha",
+  "module": "Order Flow Data Quality Gate",
+  "status": "TRUTH_VERIFIED_WITH_LIMITATIONS",
+  "claims": [
+    {
+      "claim": "Stale order flow is blocked before Position Building evidence",
+      "implementation": "dvs_ai/services/order_flow_data_quality_gate.py",
+      "test": "tests/test_v2254_order_flow_data_quality_gate.py::test_stale_data_is_blocked_not_merely_penalized"
+    },
+    {
+      "claim": "Unresolved aggTrade gaps cannot grant directional confirmation",
+      "implementation": "dvs_ai/services/microstructure_service.py",
+      "test": "tests/test_v2254_order_flow_data_quality_gate.py::test_unresolved_gap_cannot_receive_confirmation_bonus"
+    },
+    {
+      "claim": "Liquidation gaps disable liquidation evidence without disabling healthy CVD",
+      "implementation": "dvs_ai/services/order_flow_data_quality_gate.py",
+      "test": "tests/test_v2254_order_flow_data_quality_gate.py::test_liquidation_gap_disables_only_liquidation_when_trade_flow_is_healthy"
+    },
+    {
+      "claim": "REST bootstrap cannot receive full confidence or directional confirmation",
+      "implementation": "dvs_ai/services/order_flow_data_quality_gate.py",
+      "test": "tests/test_v2254_order_flow_data_quality_gate.py::test_bootstrap_is_degraded_and_never_directional_confirmation"
+    }
+  ],
+  "execution_safety": {
+    "live_enabled": false,
+    "creates_trade_intent": false,
+    "places_orders": false
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "dvs-ai-audit-register-v1",
+  "release": "4.2.1",
+  "baseline_release": "4.2.0-L",
+  "baseline_status": "AUDITED_BASELINE_FEATURE_FREEZE",
+  "decision_engine_md5": "72cf7d54e1ed6369400683358da8c0ef",
+  "execution_invariants": {
+    "execution_mode": "PAPER",
+    "execution_live_enabled": false,
+    "auto_paper_execution_enabled": false
+  },
+  "audit_evidence": {
+    "independent_adversarial_tests_reported": 168,
+    "project_tests_reported_pass": 780,
+    "project_tests_false_positive_skip": 1,
+    "known_failures": 0,
+    "known_errors": 0,
+    "source": "User-provided independent audit summary"
+  },
+  "deep_audit_scope": [
+    "Outcome statistical reliability and gate effectiveness",
+    "Episode integrity monitor",
+    "Integrity incident ledger",
+    "Integrity alert policy",
+    "Research Experiment Engine through Audit Bundle Verification Console"
+  ],
+  "partial_audit_scope": [
+    "UI widgets",
+    "episode_audit_service.py",
+    "integrity_operations_console orchestration"
+  ],
+  "hardening_items": [
+    "SQLite-enforced read-only OutcomeAnalyticsService queries",
+    "Strict audit ZIP verification mode",
+    "Explicit integrity levels and non-tautological report verification status",
+    "Documented design limitations and audit assurance metadata"
+  ]
+}

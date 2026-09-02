@@ -1,0 +1,23 @@
+DVS AI Alpha 4.3.0E-3-QBP-4-RC3
+Runtime Table Batch Optimization
+
+compileall: PASS
+focused tests: 15 passed
+full regression suite: 914 passed, 0 failed
+
+QBP-3 state: QBP3_LOCKED_OR_REVIEW_REQUIRED
+QBP-4 state: QBP4_NOT_ELIGIBLE
+authority_granted: false
+production_or_execution_authority: false
+
+Frozen Decision Engine
+MD5: 72cf7d54e1ed6369400683358da8c0ef
+SHA-256: 00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce
+
+Changed scope:
+- dvs_ai/ui/main_window.py
+- dvs_ai/version.py
+- START_DVS_AI.bat
+- tests/test_v2241_true_cell_diff_table.py
+- tests/test_runtime_table_batching.py
+- release notes/test report

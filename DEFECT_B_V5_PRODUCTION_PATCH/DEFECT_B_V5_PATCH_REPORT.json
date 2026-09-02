@@ -1,0 +1,27 @@
+{
+  "patch": "Defect B Production Patch v5 — Early Deep Cancellation",
+  "created_at_utc": "2026-07-30T01:37:34.820881+00:00",
+  "source_files_changed": [
+    "dvs_ai/ui/outcome_resolution_coordinator.py",
+    "dvs_ai/services/outcome_tracker.py",
+    "dvs_ai/services/paper_trade_service.py",
+    "dvs_ai/services/candidate_outcome_resolver.py",
+    "dvs_ai/ui/main_window.py",
+    "dvs_ai/version.py"
+  ],
+  "shutdown_timeout_ms": 5000,
+  "early_close_order": true,
+  "deep_cancellation": true,
+  "interrupt_error_propagation": true,
+  "python_compile_pass": true,
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "file_sha256": {
+    "dvs_ai/ui/outcome_resolution_coordinator.py": "6ac6d036419512b8e47d09bd645f1014defbe2219773d9e61eb0941fa21fad80",
+    "dvs_ai/services/outcome_tracker.py": "a83783b60d491acb427837d2ce9f204c276e8e83933cc1f95fb6d94ff7489531",
+    "dvs_ai/services/paper_trade_service.py": "1c241dcdee562ac13c888d23451e23c69128ed6eb6f05955669bfddd4e80eac8",
+    "dvs_ai/services/candidate_outcome_resolver.py": "bf2f1827baff286b9a910b04f71ea86218c020bb7145c2fb46e8c3ad696173ff",
+    "dvs_ai/ui/main_window.py": "6fc6c340d73d967bbbb2a1cb962dc912306f31210d19fe5b0ec897cc9c34a398",
+    "dvs_ai/version.py": "808ec62013e6b99652b18ad756f8bf52298e5e0311ded93fc838b811cedebb48"
+  },
+  "runtime_status": "NOT YET VERIFIED"
+}

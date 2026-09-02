@@ -1,0 +1,49 @@
+{
+  "release": "2.24.4-alpha",
+  "edition": "Release Truth Audit",
+  "audit_method": "source inspection + executable tests + claim-to-evidence mapping",
+  "claims": [
+    {
+      "id": "cell_diff",
+      "claim": "Existing table items are reused and changed cells/styles are updated selectively",
+      "status": "verified",
+      "evidence": [
+        "dvs_ai/ui/main_window.py::_upsert_row",
+        "tests/test_v2241_true_cell_diff_table.py"
+      ]
+    },
+    {
+      "id": "paint_scheduler",
+      "claim": "Repaint requests are deduplicated and processed by priority within a frame budget",
+      "status": "verified",
+      "evidence": [
+        "dvs_ai/ui/frame_paint_scheduler.py",
+        "tests/test_v2242_frame_paint_scheduler.py"
+      ]
+    },
+    {
+      "id": "performance_overlay",
+      "claim": "On-screen overlay displays live scheduler, profiler, table and worker telemetry",
+      "status": "verified",
+      "evidence": [
+        "dvs_ai/ui/performance_overlay.py",
+        "tests/test_v2243_performance_overlay.py"
+      ]
+    },
+    {
+      "id": "virtual_table",
+      "claim": "True virtualized table model/view rendering",
+      "status": "not_claimed",
+      "note": "Current implementation is QTableWidget with O(1) row cache and cell-level diffing, not viewport virtualization."
+    },
+    {
+      "id": "execution_safety",
+      "claim": "Release remains PAPER-only by default and live execution is disabled",
+      "status": "verified",
+      "evidence": [
+        "config.json",
+        "tests release safety gates"
+      ]
+    }
+  ]
+}

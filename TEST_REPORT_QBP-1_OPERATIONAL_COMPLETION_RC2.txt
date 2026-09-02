@@ -1,0 +1,21 @@
+QBP-1 OPERATIONAL COMPLETION RC2
+
+compileall: PASS
+focused QBP-1 tests: 11 passed
+full project suite: 894 passed
+
+Decision Engine MD5:
+72cf7d54e1ed6369400683358da8c0ef
+
+Decision Engine SHA-256:
+00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce
+
+Official verifier on bundled database:
+status: QUALIFIED_OBSERVE_ONLY_COLLECTION
+eligible_outcomes: 0
+stage: QBP-0E_COLLECTING
+cross_pipeline_action: NO_OVERLAP_DETECTED
+authority_granted: false
+production_or_execution_authority: false
+
+No claim is made that the 30-outcome empirical burn-in milestone has been reached.

@@ -1,0 +1,12 @@
+{
+  "release": "DVS AI v2.4.3 RC7.11-AUTO-PAPER-PIPELINE-FORENSICS",
+  "scope": "instrumentation-only",
+  "critical_sha256": {
+    "dvs_ai/ui/main_window.py": "83b7aeea90498471296fb6387d48bc3d2787602a03b09b323410c758efd30b95",
+    "dvs_ai/services/paper_trade_service.py": "374f48ad97d8fccab23e55747a7cef990538a0833ab906910475903797eee435",
+    "dvs_ai/engines/decision_engine.py": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce"
+  },
+  "compile_check": "PASS",
+  "decision_engine_unchanged_from_RC7.10": true,
+  "paper_trade_service_unchanged_from_RC7.10": true
+}

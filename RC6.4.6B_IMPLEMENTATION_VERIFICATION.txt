@@ -1,0 +1,11 @@
+RC6.4.6B IMPLEMENTATION VERIFICATION
+
+- Uploaded ZIP SHA-256 matched user value:
+  c4c9967c1d2e898f692b40cae4b5b4e1b708030d08d6cece8cfb454244c79504
+- Baseline main_window.py SHA-256 matched independently reported value:
+  c331b724415fa9f8bfe6a2248c96a41f66acc50aa6a2df9490f724d0c87c19f7
+- Python compilation: PASS for main_window.py, crash_reporting.py, app.py, version.py, run.py.
+- Static acceptance checks for callback coverage, reconciliation guard, independent identity fields, launch accepted/block reason codes: PASS.
+- Existing repository pytest run reached 206 PASS before an unrelated pre-existing collector signature failure.
+- Focused lifecycle tests reached 9 PASS before an unrelated legacy literal assertion expecting thread_name_prefix="dvs-scan" while baseline source uses generation-specific "dvs-scan-g...".
+- Runtime causal chain remains UNCONFIRMED until burn-in evidence is collected.

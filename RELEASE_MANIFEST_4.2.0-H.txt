@@ -1,0 +1,10 @@
+DVS AI Alpha 4.2.0-H
+Research Governance Dashboard & Review Coverage
+Baseline: 4.2.0-G
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+New service: dvs_ai/services/research_governance_dashboard.py
+New widget: dvs_ai/ui/research_governance_dashboard_widget.py
+New tests: tests/test_v420h_research_governance_dashboard.py
+Canonical database: read-only / untouched
+Research Workspace: read-only
+Review ledger: read-only for governance analysis

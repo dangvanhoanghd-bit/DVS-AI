@@ -1,0 +1,15 @@
+{
+  "build": "NATIVE2-G2",
+  "files": [
+    {
+      "file": "dvs_ai/ui/main_window.py",
+      "sha256": "9ea0bca54866d5468b88808b4180b575455e9e26fba886ea1dd2bdd944262c33",
+      "size": 342684
+    },
+    {
+      "file": "dvs_ai/ui/truth_dashboard.py",
+      "sha256": "1e542eb4e0a7526da9c9b3696c18b5b921019a45b9d02076f221e15fef92b950",
+      "size": 88026
+    }
+  ]
+}

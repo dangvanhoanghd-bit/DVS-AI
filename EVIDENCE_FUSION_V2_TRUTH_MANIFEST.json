@@ -1,0 +1,13 @@
+{
+  "release": "DVS AI Alpha 2.26.0",
+  "feature": "Evidence Fusion V2 Truth Audit",
+  "claims": {
+    "family_balanced_fusion": "VERIFIED",
+    "correlated_vote_cap": "VERIFIED",
+    "missing_evidence_renormalization": "VERIFIED",
+    "quality_weighting": "VERIFIED",
+    "contradiction_cap": "VERIFIED",
+    "probability_calibration": "NOT_IMPLEMENTED",
+    "live_execution": "DISABLED"
+  }
+}

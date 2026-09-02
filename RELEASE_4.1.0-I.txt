@@ -1,0 +1,23 @@
+DVS AI Alpha 4.1.0-I — Incident Policy & Read-only Alerting
+
+Baseline: 4.1.0-H Integrity History & Incident Ledger
+
+Added:
+- Deterministic incident alert policy with NOTICE/WATCH/ALERT/URGENT levels.
+- Policy inputs: severity, incident age, occurrence count, recurrence count.
+- Alert lifecycle: NEW, ESCALATED, DEESCALATED, ONGOING, CLEARED.
+- Separate alert state/event tables in data/dvs_integrity_ledger.db.
+- New read-only "Integrity Alerts" GUI tab and URGENT in-app notification.
+- Persistent QThread for scan/evaluation; no SQLite work on GUI thread.
+
+Safety boundary:
+- Canonical data database remains read-only to alerting.
+- No automatic repair, episode closure, candidate mutation, outcome creation,
+  threshold tuning, Decision Engine change, or exchange order capability.
+
+Verification:
+- 721/721 tests passed.
+- compileall passed.
+- headless alert widget smoke test passed.
+- 27/27 engine Python files byte-identical to 4.1.0-H.
+- Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef

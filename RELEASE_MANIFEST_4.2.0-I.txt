@@ -1,0 +1,5 @@
+DVS AI Alpha 4.2.0-I
+Governance Incident & Compliance Exceptions Ledger
+Frozen Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Source databases: read-only
+Automatic remediation: disabled

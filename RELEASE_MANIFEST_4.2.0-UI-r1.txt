@@ -1,0 +1,23 @@
+DVS AI Alpha 4.2.0-UI-r1
+Edition: Research Folder Navigation
+Baseline: DVS AI Alpha 4.2.0-UI
+
+Primary UI:
+- Dashboard remains first.
+- Phan tich chi tiet remains second.
+- Research Experiments, Comparison and Cohorts are grouped under one parent tab: Nghien cuu.
+
+Scientific boundary:
+- Decision Engine unchanged.
+- Canonical database write behavior unchanged.
+- Research services and research workspace schema unchanged.
+
+Frozen Decision Engine MD5:
+72cf7d54e1ed6369400683358da8c0ef
+
+Verification:
+- Focused UI tests: 4 passed
+- Full regression: 739 passed
+- compileall: PASS
+- Engine Python files: 27
+- Engine files changed: 0

@@ -1,0 +1,6 @@
+DVS AI Alpha 4.2.0-G
+Research Review, Annotation & Approval Workflow
+Frozen Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Review database: data/research_reviews.db
+Research workspace: read-only for target resolution and checksum verification
+Canonical database: untouched

@@ -1,0 +1,10 @@
+DVS AI Alpha 4.1.0-D
+Baseline: 4.1.0-C-r2 Async Live Episode Capture
+Scope: Statistical Reliability & Effective Sample Size
+Tests: 711 passed
+Compileall: passed
+Engine Python files verified unchanged: 27/27
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Decision Engine frozen: YES
+Automatic tuning: NO
+Exchange order capability added: NO

@@ -1,0 +1,12 @@
+{
+  "build": "IR-01A-r3_NATIVE_DESTRUCTION_THREAD_DELTA_FORENSICS",
+  "build_id": "RC6.4.7H-r2-IR-01A-r3-NATIVE-DESTRUCTION-THREAD-DELTA-FORENSICS",
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "features": [
+    "thread identity delta by (ident,native_id)",
+    "pre-destruction QObject metadata snapshot",
+    "Shiboken wrapper validity snapshots",
+    "QThread finished and QObject destroyed timeline"
+  ],
+  "compile_status": "PASS"
+}

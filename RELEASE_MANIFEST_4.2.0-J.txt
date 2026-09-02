@@ -1,0 +1,4 @@
+DVS AI Alpha 4.2.0-J
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Policy: 4.2.0-J-policy-1
+Boundary: read-only governance alerting; no remediation; no tuning; no execution authority.

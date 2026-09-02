@@ -1,0 +1,15 @@
+{
+  "release": "2.32.5-r6",
+  "feature": "Smart Money V4 Composite Exhaustion Engine",
+  "mode": "observe-only",
+  "decision_mutation": false,
+  "confidence_mutation": false,
+  "execution_dependency": false,
+  "promotion_dependency": false,
+  "exact_bottom_claim": false,
+  "guardrails": [
+    "no structural confirmation caps bottom evidence",
+    "low absorption and absent flow turn cap bottom evidence",
+    "strong negative CMF and selling pressure cap bottom evidence"
+  ]
+}

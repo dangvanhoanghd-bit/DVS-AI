@@ -1,0 +1,7 @@
+Release: DVS_AI_ALPHA_4.3.0E-3_BETA2B_UNIFIED_CONSUMER_MIGRATION
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Decision Engine SHA256: 00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce
+Regression: 943 passed
+Compileall: PASS
+Default consumers: LearningService, QuantumOptimizer, QuantumReadinessService -> UnifiedOutcomeService
+Legacy policy: schema-gated + LEGACY_SQL_PATH_USED telemetry

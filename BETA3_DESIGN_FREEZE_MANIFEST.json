@@ -1,0 +1,75 @@
+{
+  "created_at_utc": "2026-07-23T04:11:24.414246+00:00",
+  "decision_engine_md5": "72cf7d54e1ed6369400683358da8c0ef",
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "documents": [
+    {
+      "bytes": 3553,
+      "file": "BETA3_DESIGN_FREEZE.md",
+      "sha256": "6d7ac644adf667aa1fe06100d1d2360303e397a0d2e0bee614d85888b09e0bcf"
+    },
+    {
+      "bytes": 1721,
+      "file": "LEARNING_FOUNDATION_SPEC.md",
+      "sha256": "cb78f44f70ccfae7d0dbf46312898f21c3f8f9193b02eb21cec8819102f95614"
+    },
+    {
+      "bytes": 1369,
+      "file": "FEATURE_SNAPSHOT_SPEC.md",
+      "sha256": "f77e7c8fb60b9f9193a30a558cb13d065e182ea5a88036b39db58ed6294b90cb"
+    },
+    {
+      "bytes": 1866,
+      "file": "FEATURE_STORE_SCHEMA.md",
+      "sha256": "49597cbb4940f43e69c313a2b477566defa49b97b7a4fe268c10dc4643610cb1"
+    },
+    {
+      "bytes": 1359,
+      "file": "DATASET_BUILDER_SPEC.md",
+      "sha256": "1c47225312a68c8cae86f70baff45713a88b58f573a74b8c3bfc54534d93bf37"
+    },
+    {
+      "bytes": 1164,
+      "file": "DATASET_VERSIONING_SPEC.md",
+      "sha256": "f60f5a1825271219b084902b4579991912bccbc044667261f1ed0b8a9c8396db"
+    },
+    {
+      "bytes": 1048,
+      "file": "FEATURE_QUALITY_SPEC.md",
+      "sha256": "8f13f23123e2404450269e853855af98b3004b88ba585a2bd2fddc1020caa098"
+    },
+    {
+      "bytes": 1328,
+      "file": "LEARNING_CANDIDATE_RULES.md",
+      "sha256": "e42c94cd9825f5aa97b5f9f2eaaf3aa09749fbbd7e7f0a35f5b00b71a6c01b7e"
+    },
+    {
+      "bytes": 1122,
+      "file": "LEARNING_ENGINE_SPEC.md",
+      "sha256": "6d3e692c317f8ef61b070aab0254378cb54d0760043ecef867354345c07d4d05"
+    },
+    {
+      "bytes": 1503,
+      "file": "INSIGHT_GENERATOR_SPEC.md",
+      "sha256": "3925bc9674a5ae04a1756d705936580a5fb19fbabeefa0f4ecaf53810317b185"
+    },
+    {
+      "bytes": 1177,
+      "file": "SAFETY_LAYER_SPEC.md",
+      "sha256": "ff3857f5c3cc704e0a1f6c466f00163addb709f4c704e85f48e21598f1736317"
+    },
+    {
+      "bytes": 1317,
+      "file": "LEARNING_DATA_LINEAGE.md",
+      "sha256": "90c004a07a5abe439ca87d7a1aa61d1c34af8e144573b732287a8608392382ff"
+    },
+    {
+      "bytes": 1180,
+      "file": "RELEASE_NOTES_BETA3_DESIGN_FREEZE.md",
+      "sha256": "ea21fa81ac1fae9db10e61d8c7ce645883cb0272469efbad3a20ae60fca44714"
+    }
+  ],
+  "schema_version": "dvs-beta3-design-freeze-manifest-v1",
+  "self_sha256": "bea1e0b77bba107c27585b76c09476f098c16a59d9a5d88cee05cc86e114c0bd",
+  "status": "DESIGN_FROZEN"
+}

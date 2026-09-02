@@ -1,0 +1,28 @@
+{
+  "version": "2.29.0",
+  "release": "Historical Candidate Performance Platform",
+  "claims": {
+    "candidate_lifecycle_append_only": {
+      "state": "VERIFIED",
+      "implementation": "dvs_ai/services/candidate_lifecycle_store.py",
+      "test": "tests/test_v2290_historical_candidate_platform.py"
+    },
+    "candidate_performance_append_only": {
+      "state": "VERIFIED",
+      "implementation": "dvs_ai/services/historical_candidate_store.py",
+      "test": "tests/test_v2290_historical_candidate_platform.py"
+    },
+    "historical_dashboard": {
+      "state": "VERIFIED_SOURCE_AND_TEST",
+      "implementation": "dvs_ai/ui/truth_dashboard.py",
+      "limitation": "Qt runtime smoke test requires PySide6 on the target machine"
+    },
+    "automatic_snapshot_runtime": {
+      "state": "NOT_IMPLEMENTED",
+      "limitation": "Snapshots are appendable and queryable, but periodic runtime capture is deferred"
+    },
+    "live_execution": {
+      "state": "DISABLED"
+    }
+  }
+}

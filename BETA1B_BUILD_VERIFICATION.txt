@@ -1,0 +1,8 @@
+compileall: PASS
+pytest: 934 passed
+failures: 0
+Behavior tests added:
+- TP1 remains intermediate and TP2 resolves WIN
+- terminal outcomes cannot be overwritten
+- event ledger does not duplicate terminal events
+- claim-owned transactional persistence

@@ -1,0 +1,10 @@
+DVS AI Alpha 4.2.3
+Scope: Python scan executor lifecycle and Windows sleep/resume hardening
+Baseline: 4.2.2
+Decision Engine: unchanged
+Execution: PAPER-only unchanged
+Key files changed:
+- dvs_ai/ui/main_window.py
+- dvs_ai/version.py
+- tests/test_v423_executor_sleep_hardening.py
+- RELEASE_NOTES_4.2.3.md

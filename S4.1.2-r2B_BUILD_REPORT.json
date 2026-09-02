@@ -1,0 +1,45 @@
+{
+  "acceptance": {
+    "native_access_violation_absent": true,
+    "process_exit_code": 0,
+    "required_destroyed_signals": [
+      "main_window_destroyed_signal",
+      "runtime_telemetry_destroyed_signal"
+    ],
+    "required_reference_marker": "root_python_references_released",
+    "telemetry_valid_after_drain": false,
+    "window_valid_after_drain": false
+  },
+  "baseline": "S4.1.2-r2A root shutdown instrumentation on corrected F01/F02",
+  "build_id": "S4.1.2-r2B-DETERMINISTIC-ROOT-WRAPPER-SHUTDOWN",
+  "checks": {
+    "bounded_deferred_delete_drain": true,
+    "decision_engine_unchanged": true,
+    "f01_f02_corrected_main_window_preserved": true,
+    "python_compile": true,
+    "qapplication_explicit_delete_not_added": true,
+    "telemetry_deleteLater_not_added_parent_cascade": true,
+    "window_deleteLater_added": true
+  },
+  "expected_runtime_markers": [
+    "root_wrapper_delete_begin",
+    "root_wrapper_delete_posted",
+    "root_wrapper_delete_end",
+    "root_wrapper_delete_timeout",
+    "root_python_references_released",
+    "main_window_destroyed_signal",
+    "runtime_telemetry_destroyed_signal",
+    "root_wrapper_validity_finally_exit"
+  ],
+  "production_files_changed": [
+    "dvs_ai/app.py"
+  ],
+  "runtime_verification": "PENDING",
+  "schema_version": "dvs.s4.1.2.r2b.build_report.v1",
+  "scope": "deterministic_root_wrapper_shutdown_only",
+  "source_sha256": {
+    "dvs_ai/app.py": "4fb1102e9dc17eef8c909886deab56eb4fbc4898b676ed1f97656b29c40a04fd",
+    "dvs_ai/engines/decision_engine.py": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+    "dvs_ai/ui/main_window.py": "0f390bb27f8180791987bedb467d7285866bda873479b6a2d02c62325b479d29"
+  }
+}

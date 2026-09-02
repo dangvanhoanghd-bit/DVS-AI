@@ -1,0 +1,16 @@
+{
+  "version": "2.28.2",
+  "release": "Observation Quality & Coverage Audit",
+  "claims": {
+    "paired_same_analysis": "VERIFIED",
+    "paper_trade_id_linkage": "VERIFIED",
+    "idempotent_outcome_close": "VERIFIED",
+    "dashboard_runtime_telemetry": "VERIFIED",
+    "main_immutable": "VERIFIED",
+    "live_execution": "DISABLED"
+  },
+  "limitations": [
+    "No invented counterfactual outcome for observations without a PAPER trade",
+    "No Testnet or LIVE execution"
+  ]
+}

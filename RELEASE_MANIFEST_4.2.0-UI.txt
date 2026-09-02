@@ -1,0 +1,42 @@
+DVS AI Alpha 4.2.0-UI
+UI Architecture Freeze
+
+Baseline: 4.2.0-D
+Scope: main-tab information architecture only
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Engine Python files compared: 27
+Engine Python files changed: 0
+Regression: 738 passed
+Focused UI tests: 3 passed
+compileall: PASS
+
+Priority order:
+Dashboard
+Phân tích chi tiết
+Decision Core
+Smart Entry
+Paper Trade
+Learning
+Liquidity & Wyckoff
+Smart Money
+Quantum Optimizer
+Lịch sử tín hiệu
+Truth Dashboard
+Statistical Diagnostics
+Episode Integrity
+Integrity History
+Integrity Alerts
+Integrity Operations
+Episode Audit
+Research Experiments
+Research Comparison
+Research Cohorts
+Trung tâm lỗi
+
+Scientific boundary:
+No scoring changes
+No threshold changes
+No gate changes
+No Decision Engine changes
+No execution authority changes
+No canonical database changes

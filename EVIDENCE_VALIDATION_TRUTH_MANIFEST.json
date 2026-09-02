@@ -1,0 +1,10 @@
+{
+  "version":"2.28.0",
+  "claims":[
+    {"name":"candidate_comparison","status":"VERIFIED","implementation":"dvs_ai/services/candidate_evidence_service.py"},
+    {"name":"paired_shadow_observation","status":"VERIFIED","implementation":"dvs_ai/services/shadow_observation_service.py"},
+    {"name":"promotion_readiness_observe_only","status":"VERIFIED","implementation":"dvs_ai/services/shadow_observation_service.py"},
+    {"name":"candidate_dashboard","status":"VERIFIED_WITH_QT_RUNTIME_DEPENDENCY","implementation":"dvs_ai/ui/truth_dashboard.py"}
+  ],
+  "live_execution":"DISABLED"
+}

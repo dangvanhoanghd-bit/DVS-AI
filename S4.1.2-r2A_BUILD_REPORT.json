@@ -1,0 +1,28 @@
+{
+  "baseline": "S4.1.2-r1 corrected deterministic worker deletion",
+  "build_id": "S4.1.2-r2A-ROOT-SHUTDOWN-INSTRUMENTATION",
+  "checks": {
+    "decision_engine_unchanged": true,
+    "finally_validity_markers": true,
+    "python_compile": true,
+    "safe_destroyed_observers": true,
+    "teardown_behavior_changed": false
+  },
+  "expected_runtime_markers": [
+    "root_wrapper_validity_finally_enter",
+    "root_wrapper_validity_finally_exit",
+    "main_window_destroyed_signal",
+    "runtime_telemetry_destroyed_signal"
+  ],
+  "production_files_changed": [
+    "dvs_ai/app.py"
+  ],
+  "runtime_verification": "PENDING",
+  "schema_version": "dvs.s4.1.2.r2a.build_report.v1",
+  "scope": "instrumentation_only",
+  "source_sha256": {
+    "dvs_ai/app.py": "ed24c709134e66729d50c6d96c525a8cd791180822868637b3f790a579fe1572",
+    "dvs_ai/engines/decision_engine.py": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+    "dvs_ai/ui/main_window.py": "0f390bb27f8180791987bedb467d7285866bda873479b6a2d02c62325b479d29"
+  }
+}

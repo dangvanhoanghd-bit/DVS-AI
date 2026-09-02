@@ -1,0 +1,17 @@
+DVS AI Alpha 4.2.0-UI-r3
+Edition: Qualification · Back to Basics · UI 2.0 Sidebar Workspace
+Baseline: 4.2.0-UI-r2
+
+Verification:
+- Full regression: 746 passed
+- compileall: PASS
+- Engine Python files: 27
+- Engine files changed vs baseline: 0
+- Frozen Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+
+Scientific boundary:
+- UI navigation only
+- No Decision Engine changes
+- No scoring/threshold/gate changes
+- No canonical database changes
+- No execution authority changes

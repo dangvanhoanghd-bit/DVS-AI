@@ -1,0 +1,34 @@
+{
+  "schema_version": "dvs.build_report.v2.4",
+  "build_id": "RC6.4.7H-r2-GUI-PERFORMANCE-CANDIDATE-V2.4",
+  "timestamp_utc": "2026-07-30T13:01:04.695555+00:00",
+  "status": "SOURCE_VALIDATED_RUNTIME_PENDING",
+  "scope": [
+    "first-paint-gated deferred workspace construction",
+    "order-flow runtime starts after first paint",
+    "startup milestone telemetry v2",
+    "finalization callback de-duplicated and post-commit work deferred",
+    "qualification metrics moved off GUI thread",
+    "phase telemetry with queue/execution separation"
+  ],
+  "frozen": {
+    "decision_engine": true,
+    "paper_trade_v2_3_1_commit_path": true,
+    "statistics_policy": "linear interpolation / observed max / direct budget violations"
+  },
+  "critical_sha256": {
+    "dvs_ai/app.py": "281b231a640e05ac8e9f55c1a7de1a96c6cd8aa9b916aad70a4946c1dd450851",
+    "dvs_ai/ui/main_window.py": "fea20b8b7bac70fa303da631e919b370b3adcf3e397cb1167afdebce760bf317",
+    "dvs_ai/runtime/gui_event_loop_forensics.py": "de57255dbfde05c4458faeba05781a522fac8d14aaf5f9563101dabfa56e8043",
+    "dvs_ai/services/shadow_observation_service.py": "c9b00f316fabd9d33402c775b428b7218c99130426d25fce1cc78c2a58f536d5",
+    "dvs_ai/ui/truth_dashboard.py": "ccede153e72ff2e17bcdd1b7ed8fdbf03927fea6d597a89a9504eb7572b38eac",
+    "dvs_ai/engines/decision_engine.py": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+    "dvs_ai/version.py": "9f1d0d2895618171e8368f7ab83bfd267d7662241a928a3338aa6af91a65c377"
+  },
+  "validation": {
+    "compileall": "PASS",
+    "release_identity": "PASS",
+    "negative_identity_tests": "5/5 PASS"
+  },
+  "production_approval": "NOT_GRANTED_RUNTIME_PENDING"
+}

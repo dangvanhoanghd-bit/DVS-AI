@@ -1,0 +1,15 @@
+{
+  "release": "DVS AI Alpha 2.26.1",
+  "claim": "Validated PAPER probability annotation",
+  "status": "TRUTH_VERIFIED_WITH_LIMITATIONS",
+  "method": "BAYES_BIN_PAV_CHRONO_HOLDOUT",
+  "minimum_determinate_closed_trades": 80,
+  "changes_confidence_score": false,
+  "changes_trading_gates": false,
+  "live_execution_enabled": false,
+  "verification": {
+    "compile": "PASS",
+    "targeted_tests": "4/4 PASS",
+    "full_suite": "359/359 PASS"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "allowed_keys": [
+    "candidate_eligibility",
+    "direction_observable",
+    "order_flow_full_observable",
+    "paired_observable",
+    "paired_powered",
+    "powered_samples",
+    "regime_observable"
+  ],
+  "created_at": "2026-07-17T00:00:00+00:00",
+  "file_sha256": "a406044118754b26f4094e6cf03af8ca0fa53caff543fd74231bfd4f21b74718",
+  "profile_version": "1.0.0",
+  "protocol_version": "1.0"
+}

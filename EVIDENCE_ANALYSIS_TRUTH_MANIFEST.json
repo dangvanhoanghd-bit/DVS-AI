@@ -1,0 +1,15 @@
+{
+  "release": "2.32.2",
+  "edition": "Evidence Analysis Engine",
+  "protocol_version": "1.0",
+  "observe_only": true,
+  "testnet_enabled": false,
+  "live_execution_enabled": false,
+  "claims": [
+    "integrity-first stopping rule",
+    "immutable-context-only downstream analysis",
+    "underpowered recommendation hard block",
+    "actionable sample gap reporting",
+    "database-isolated recommendation engine"
+  ]
+}

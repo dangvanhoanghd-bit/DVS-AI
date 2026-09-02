@@ -1,0 +1,17 @@
+DVS AI Alpha 4.2.1
+Audit Hardening Release
+
+New/updated hardening artifacts:
+- dvs_ai/services/outcome_analytics.py
+- dvs_ai/services/audit_bundle_verifier.py
+- dvs_ai/services/research_review_workflow.py
+- dvs_ai/services/research_governance_audit_bundle.py
+- dvs_ai/ui/audit_bundle_verifier_widget.py
+- dvs_ai/version.py
+- START_DVS_AI.bat
+- tests/test_v421_audit_hardening_release.py
+- RELEASE_NOTES_4.2.1.md
+- RELEASE_MANIFEST_4.2.1.txt
+- HARDENING_REPORT.md
+- KNOWN_DESIGN_LIMITATIONS.md
+- audit_register.json

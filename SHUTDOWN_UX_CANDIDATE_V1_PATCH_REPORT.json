@@ -1,0 +1,28 @@
+{
+  "build_id": "RC6.4.7H-r2-SHUTDOWN-UX-CANDIDATE-V1",
+  "sprint": "A1 Shutdown UX Optimization",
+  "status": "SOURCE IMPLEMENTED / RUNTIME NOT YET VERIFIED",
+  "implemented": [
+    "First close request remains fail-closed and initiates cooperative shutdown.",
+    "Registry timeout no longer requires a second manual close request.",
+    "A 250 ms QTimer polls registry snapshots without QThread.wait() or terminate().",
+    "Each polling tick emits measurement_ms, budget_ms=25 and budget_exceeded.",
+    "When survivor_count reaches zero, the application automatically resumes final close processing.",
+    "Single-flight state prevents duplicate polling timers and repeated pre-registry shutdown work.",
+    "Non-modal closing progress dialog can be hidden."
+  ],
+  "not_implemented": [
+    "A true Cancel Shutdown action is intentionally not included because the existing shutdown path already performs irreversible service/thread stops before registry waiting. Offering Cancel would falsely imply safe restoration of RUNNING state."
+  ],
+  "frozen_constraints": {
+    "decision_engine_changed": false,
+    "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+    "terminate_used": false
+  },
+  "source_verification": {
+    "py_compile": "PASS",
+    "release_identity_test": "PASS (1 passed)",
+    "runtime_verification": "PENDING"
+  },
+  "generated_at_utc": "2026-07-30T02:50:42.310497+00:00"
+}

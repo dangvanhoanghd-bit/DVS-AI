@@ -1,0 +1,30 @@
+DVS AI Alpha 4.3.0E-3-QBP-4-RC4
+Finalization Diagnostics
+
+Source baseline:
+DVS_AI_ALPHA_4.3.0E-3_QBP-4_RUNTIME_TABLE_BATCH_OPTIMIZATION_RC3
+
+Validation performed:
+- Python compileall: PASS
+- Focused runtime/launcher tests: 20 passed
+- Full regression suite: 917 passed, 0 failed
+
+Decision Engine integrity:
+- MD5: 72cf7d54e1ed6369400683358da8c0ef
+- SHA-256: 00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce
+
+Scope:
+- Structured FINALIZATION_GUI_COMMIT_METRICS telemetry
+- Session/PID/cycle/commit correlation IDs
+- Table/result/cell-diff size metrics
+- Per-phase finalization timing
+- Watchdog suppression for OS suspend/resume gaps >10 seconds
+- Windows launcher CMD metacharacter-safe title
+
+Unchanged:
+- Decision Engine
+- Thresholds
+- MAIN/SHADOW eligibility
+- Paper Trade policy
+- Quantum governance
+- Execution authority

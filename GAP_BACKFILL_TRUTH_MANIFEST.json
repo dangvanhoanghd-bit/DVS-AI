@@ -1,0 +1,16 @@
+{
+  "version": "2.25.3-alpha",
+  "feature": "Gap Detection & Controlled Backfill",
+  "verified_claims": [
+    "aggTrade ID gap detection",
+    "bounded contiguous REST backfill",
+    "stable-key CVD deduplication",
+    "explicit unresolved gap state",
+    "liquidation gaps are warned and never fabricated"
+  ],
+  "not_claimed": [
+    "forceOrder historical recovery",
+    "lossless market data",
+    "live execution"
+  ]
+}

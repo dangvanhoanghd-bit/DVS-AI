@@ -1,0 +1,24 @@
+RC6.4.7 IMPLEMENTATION VERIFICATION
+
+Build ID: RC6.4.7-GUI-MEMORY-IDENTITY-DIAGNOSTICS
+
+COMPILE
+- main_window.py: PASS
+- app.py: PASS
+- version.py: PASS
+
+FOCUSED TESTS
+- test_v422_scan_runtime_resource_lifecycle.py
+- test_v425_persistent_scan_qthread.py
+- test_v2223_auto_scan_ui_state_preservation.py
+Result: 17 PASS
+
+STATIC ACCEPTANCE
+- stable finished_with_identity generation payload retained: PASS
+- cleanup contains self.sender(): NO
+- QObject identity used as cleanup authority: NO
+- callback completed-duration telemetry: PRESENT
+- scheduler last-completed callback correlation: PRESENT
+- per-key identity diagnostics: PRESENT
+- 20-second collection snapshots: PRESENT
+- Decision Engine SHA-256: 00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce

@@ -1,0 +1,17 @@
+{
+  "version": "2.25.2-alpha",
+  "name": "Resilient WebSocket Collector Audit",
+  "verified_claims": [
+    "combined aggTrade and forceOrder subscription URL",
+    "duplicate-safe persistent ingestion",
+    "exponential reconnect with bounded jitter",
+    "stale stream detection",
+    "malformed message isolation",
+    "no execution dependency"
+  ],
+  "limitations": [
+    "zero-gap reconnect is not guaranteed",
+    "dynamic live subscription mutation is not implemented",
+    "Level-3 queue and iceberg detection are not implemented"
+  ]
+}

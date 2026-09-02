@@ -1,0 +1,16 @@
+{
+  "version": "2.26.7",
+  "status": "TRUTH_VERIFIED_WITH_LIMITATIONS",
+  "claims": {
+    "training_filter": "Only PAPER rows with a valid evidence snapshot, VALIDATED calibration, STABLE drift and FULL order-flow quality are eligible.",
+    "legacy_policy": "Rows without DVS_QUANTUM_TRAINING_V1 metadata are excluded; no inference from reasoning text.",
+    "shadow_policy": "Quantum creates a reviewable Shadow Candidate file and does not mutate the running config.",
+    "main_policy": "MAIN thresholds are never written by Quantum Lab.",
+    "execution_policy": "No Execution dependency or live-order path is introduced."
+  },
+  "limitations": [
+    "Quality-qualified samples accumulate only after upgrading to snapshot schema V1.",
+    "The optimizer still searches threshold parameters, not Evidence Fusion weights.",
+    "Human review and a separate controlled promotion process are required for candidates."
+  ]
+}

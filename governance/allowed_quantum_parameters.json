@@ -1,0 +1,16 @@
+{
+  "schema_version": "dvs-policy-scope-v1",
+  "artifact_type": "GOVERNANCE_ALLOW_LIST",
+  "scope_name": "quantum-dataset-v1-baseline",
+  "interacting_parameters": [],
+  "operational_parameters_excluded": [
+    "scan_workers",
+    "watchlist",
+    "ui",
+    "logging"
+  ],
+  "optimizer_may_modify": false,
+  "main_write_authority": false,
+  "shadow_write_authority": false,
+  "note": "4.3.0B Dataset Factory only. No parameter is enabled for optimization."
+}

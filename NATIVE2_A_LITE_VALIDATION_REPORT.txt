@@ -1,0 +1,32 @@
+DVS AI NATIVE2-A Lite Validation
+================================
+
+Baseline: DVS_AI_BETA4A_RC6_1_TEST-A_BLAS_SINGLE_THREAD
+Behavioral changes: NONE intended
+Decision Engine: unchanged
+BLAS Test A launcher: retained
+DataFrame copy/isolation patch: NOT applied
+
+Instrumentation added:
+- artifacts/runtime/frame_ownership.jsonl
+- frame checkout events for cache hit/miss
+- engine enter/exit events
+- bounded active-overlap detector
+- np.shares_memory only for narrowly suspected overlapping frames
+- scan_id propagated from GUI scan/finalization workers
+
+Static validation:
+- py_compile PASS:
+  * dvs_ai/services/frame_ownership_telemetry.py
+  * dvs_ai/services/scanner.py
+  * dvs_ai/engines/microstructure/microstructure_engine.py
+  * dvs_ai/ui/main_window.py
+
+Smoke validation:
+- concurrent same-DataFrame test: PASS
+- detects overlap across different scan_id values: PASS
+- test_fix_dump_minimal.py: PASS
+
+Important:
+This build measures ownership only. It deliberately does NOT change
+Scanner._frame() to return frame.copy().

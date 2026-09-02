@@ -1,0 +1,13 @@
+NATIVE2-E changed/added files
+
+MODIFIED
+- run.py
+- dvs_ai/app.py
+
+ADDED
+- dvs_ai/diagnostics/__init__.py
+- dvs_ai/diagnostics/shutdown_probe.py
+- NATIVE2_E_SHUTDOWN_PROBE_README.md
+- NATIVE2_E_CHANGED_FILES.txt
+
+Decision Engine: unchanged.

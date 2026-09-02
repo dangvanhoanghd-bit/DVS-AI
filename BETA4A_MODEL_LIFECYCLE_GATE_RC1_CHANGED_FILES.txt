@@ -1,0 +1,5 @@
+dvs_ai/beta4a/contracts.py
+dvs_ai/beta4a/model_lifecycle_gate.py
+tests/test_beta4a_model_lifecycle_gate.py
+RELEASE_NOTES_BETA4A_MODEL_LIFECYCLE_GATE_RC1.md
+BETA4A_MODEL_LIFECYCLE_GATE_RC1_TEST_REPORT.md

@@ -1,0 +1,28 @@
+{
+  "release": "2.25.0-alpha",
+  "module": "PositionBuildingEngine",
+  "status": "TRUTH_VERIFIED_WITH_LIMITATIONS",
+  "verified": [
+    "open_interest_change",
+    "funding_crowding_and_contrarian_split",
+    "delta_ratio_proxy",
+    "cvd_slope_proxy_after_hydration",
+    "liquidation_context_when_available",
+    "absorption_context",
+    "persistence",
+    "acceleration",
+    "fail_safe_input_normalization",
+    "top_n_microstructure_rewire"
+  ],
+  "not_implemented": [
+    "iceberg_detection",
+    "level_3_queue_imbalance",
+    "persistent_websocket_cvd"
+  ],
+  "safety": {
+    "creates_trade_decision": false,
+    "creates_trade_intent": false,
+    "sends_orders": false,
+    "live_execution_enabled": false
+  }
+}

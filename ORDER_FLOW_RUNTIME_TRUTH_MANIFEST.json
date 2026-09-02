@@ -1,0 +1,33 @@
+{
+  "release": "DVS AI Alpha 2.25.5",
+  "feature": "Order Flow Runtime Integration Audit",
+  "claims": [
+    {
+      "claim": "One application-owned runtime shares one persistent store across collector, backfiller, and MicrostructureService",
+      "status": "VERIFIED",
+      "implementation": ["dvs_ai/app.py", "dvs_ai/services/order_flow_runtime.py"]
+    },
+    {
+      "claim": "Collector diagnostics feed the Order Flow Data Quality Gate",
+      "status": "VERIFIED",
+      "implementation": ["dvs_ai/app.py", "dvs_ai/services/microstructure_service.py"]
+    },
+    {
+      "claim": "Runtime lifecycle is start/stop/close idempotent and closed on app exit",
+      "status": "VERIFIED",
+      "implementation": ["dvs_ai/services/order_flow_runtime.py", "dvs_ai/ui/main_window.py", "dvs_ai/app.py"]
+    },
+    {
+      "claim": "UI displays live feed state and diagnostics",
+      "status": "VERIFIED",
+      "implementation": ["dvs_ai/ui/main_window.py"]
+    },
+    {
+      "claim": "Runtime can place or manage orders",
+      "status": "FALSE_BY_DESIGN",
+      "limitations": "Evidence-only public market-data layer; no Execution dependency."
+    }
+  ],
+  "tests": "350/350 PASS",
+  "live_execution": "DISABLED"
+}

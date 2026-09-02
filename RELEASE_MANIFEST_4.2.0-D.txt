@@ -1,0 +1,11 @@
+DVS AI Alpha 4.2.0-D
+Edition: Experiment Cohort & Batch Study Framework
+Baseline: DVS AI Alpha 4.2.0-C
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Engine Python files compared: 27
+Engine Python files changed: 0
+Regression: 735 passed
+Focused tests: 4 passed
+Compileall: PASS
+Headless widget smoke test: PASS
+Scientific boundary: descriptive-only; no tuning; no canonical database write; no Decision Engine invocation.

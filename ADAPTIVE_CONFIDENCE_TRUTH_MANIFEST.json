@@ -1,0 +1,19 @@
+{
+  "version": "2.26.3-alpha",
+  "release": "Adaptive Confidence Truth Audit",
+  "claims": {
+    "separate_annotation": {"status": "VERIFIED", "field": "adaptive_probability"},
+    "raw_confidence_unchanged": {"status": "VERIFIED", "field": "confidence_score"},
+    "context": {"status": "VERIFIED", "value": "direction|regime"},
+    "chronological_validation": {"status": "VERIFIED"},
+    "bounded_adjustment": {"status": "VERIFIED", "max_percentage_points": 8.0},
+    "execution_dependency": {"status": "ABSENT"}
+  },
+  "limitations": [
+    "observe-only",
+    "PAPER outcomes only",
+    "no symbol-specific model",
+    "no threshold or position-size changes",
+    "LIVE execution disabled"
+  ]
+}

@@ -1,0 +1,9 @@
+DVS AI Alpha 4.2.0-B — Experiment Execution Engine
+
+Decision Engine MD5: 72cf7d54e1ed6369400683358da8c0ef
+Research workspace: data/research_workspace.db
+Allowed analyses: DATASET_PROFILE, GROUP_COMPARISON, STABILITY_CHECK
+Canonical source database: read-only
+Arbitrary code execution: prohibited
+Automatic trading authority: none
+Regression: 727 passed

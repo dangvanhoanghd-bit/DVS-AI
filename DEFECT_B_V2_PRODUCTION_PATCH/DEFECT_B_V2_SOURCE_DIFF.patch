@@ -1,0 +1,169 @@
+--- /tmp/main_window.before.py	2026-07-29 12:57:14.158989623 +0000
++++ /mnt/data/defectb_v2_work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH/dvs_ai/ui/main_window.py	2026-07-29 12:57:15.642989623 +0000
+@@ -1062,32 +1062,52 @@
+ class LearningRefreshWorker(QObject):
+     ready = Signal(object)
+     failed = Signal(str)
++    cancelled = Signal(str)
+ 
+     def __init__(self, learning_service, quantum_db_path: str, quantum_required: int):
+         super().__init__()
+         self.learning_service = learning_service
+         self.quantum_db_path = str(quantum_db_path)
+         self.quantum_required = int(quantum_required)
++        # Thread-safe cooperative stop flag. closeEvent() sets it directly from
++        # the GUI thread because a queued stop slot cannot run while refresh()
++        # itself is occupying the worker thread.
++        self._stop_requested = threading.Event()
++
++    def request_stop(self) -> None:
++        self._stop_requested.set()
++
++    def _check_stop(self, stage: str) -> None:
++        if self._stop_requested.is_set():
++            raise InterruptedError(f"learning_refresh_cancelled:{stage}")
+ 
+     @Slot()
+     def refresh(self) -> None:
+         try:
++            self._check_stop("before_readiness")
+             readiness = QuantumReadinessService(
+                 self.quantum_db_path, required=self.quantum_required
+             ).snapshot()
+-            payload = {
+-                "readiness": readiness,
+-                "overview": self.learning_service.overview(),
+-                "main_overview": self.learning_service.overview("MAIN"),
+-                "shadow_overview": self.learning_service.overview("SHADOW"),
+-                "setup_performance": self.learning_service.setup_performance(),
+-                "confidence_calibration": self.learning_service.confidence_calibration(),
+-                "rejection_monitor": self.learning_service.rejection_monitor(),
+-                "threshold_comparison": self.learning_service.threshold_comparison(),
+-                "execution_diagnostics": self.learning_service.execution_diagnostics(),
+-                "weight_recommendations": self.learning_service.weight_recommendations(),
+-            }
++            self._check_stop("after_readiness")
++            payload = {"readiness": readiness}
++            stages = (
++                ("overview", lambda: self.learning_service.overview()),
++                ("main_overview", lambda: self.learning_service.overview("MAIN")),
++                ("shadow_overview", lambda: self.learning_service.overview("SHADOW")),
++                ("setup_performance", self.learning_service.setup_performance),
++                ("confidence_calibration", self.learning_service.confidence_calibration),
++                ("rejection_monitor", self.learning_service.rejection_monitor),
++                ("threshold_comparison", self.learning_service.threshold_comparison),
++                ("execution_diagnostics", self.learning_service.execution_diagnostics),
++                ("weight_recommendations", self.learning_service.weight_recommendations),
++            )
++            for stage, operation in stages:
++                self._check_stop(f"before_{stage}")
++                payload[stage] = operation()
++                self._check_stop(f"after_{stage}")
+             self.ready.emit(payload)
++        except InterruptedError as exc:
++            self.cancelled.emit(str(exc))
+         except Exception as exc:
+             self.failed.emit(f"{type(exc).__name__}: {exc}")
+ 
+@@ -1252,6 +1272,7 @@
+         )
+         self._learning_worker.ready.connect(self._on_learning_refresh_ready)
+         self._learning_worker.failed.connect(self._on_learning_refresh_failed)
++        self._learning_worker.cancelled.connect(self._on_learning_refresh_cancelled)
+         self._learning_thread.finished.connect(self._learning_worker.deleteLater)
+         self._learning_thread.start()
+         self.auto_paper_enabled = False
+@@ -2666,11 +2687,56 @@
+         except Exception:
+             logger.exception("API health worker shutdown failed")
+         try:
+-            if getattr(self, "_learning_thread", None) is not None and self._learning_thread.isRunning():
+-                self._learning_thread.quit()
+-                self._learning_thread.wait(5000)
+-        except Exception:
++            learning_worker = getattr(self, "_learning_worker", None)
++            learning_thread = getattr(self, "_learning_thread", None)
++            if learning_thread is not None and learning_thread.isRunning():
++                started = time.monotonic()
++                PAYLOAD_FOOTPRINT_TELEMETRY._write({
++                    "event": "learning_refresh_shutdown_requested",
++                    "thread_running": True,
++                    "refresh_running": bool(getattr(self, "_learning_refresh_running", False)),
++                    "timeout_ms": 5000,
++                })
++                if learning_worker is not None:
++                    learning_worker.request_stop()
++                learning_thread.requestInterruption()
++                learning_thread.quit()
++                stopped = bool(learning_thread.wait(5000))
++                elapsed_ms = round((time.monotonic() - started) * 1000.0, 3)
++                if not stopped or learning_thread.isRunning():
++                    PAYLOAD_FOOTPRINT_TELEMETRY._write({
++                        "event": "learning_refresh_shutdown_timeout",
++                        "thread_running": bool(learning_thread.isRunning()),
++                        "elapsed_ms": elapsed_ms,
++                        "timeout_ms": 5000,
++                    })
++                    logger.error(
++                        "Learning refresh worker did not stop within 5000 ms; close rejected"
++                    )
++                    try:
++                        self.status.setText(
++                            "Không thể đóng an toàn: Learning Refresh chưa dừng. Vui lòng chờ rồi đóng lại."
++                        )
++                    except Exception:
++                        pass
++                    self.is_closing = False
++                    event.ignore()
++                    return
++                PAYLOAD_FOOTPRINT_TELEMETRY._write({
++                    "event": "learning_refresh_shutdown_completed",
++                    "thread_running": False,
++                    "elapsed_ms": elapsed_ms,
++                })
++        except Exception as exc:
+             logger.exception("Learning refresh worker shutdown failed")
++            PAYLOAD_FOOTPRINT_TELEMETRY._write({
++                "event": "learning_refresh_shutdown_failed",
++                "error_type": type(exc).__name__,
++                "error": str(exc),
++            })
++            self.is_closing = False
++            event.ignore()
++            return
+         try:
+             signal_record_thread = getattr(self, "_signal_record_thread", None)
+             if signal_record_thread is not None and signal_record_thread.isRunning():
+@@ -4703,6 +4769,12 @@
+             self._learning_refresh_pending = False
+             QTimer.singleShot(250, self.refresh_learning_center)
+ 
++    @Slot(str)
++    def _on_learning_refresh_cancelled(self, reason: str) -> None:
++        self._learning_refresh_running = False
++        self._learning_refresh_pending = False
++        logger.info("LEARNING_REFRESH_CANCELLED %s", reason)
++
+     def _render_learning_payload(self, payload):
+         render_started = time.perf_counter()
+         readiness_snapshot = payload.get("readiness")
+--- /tmp/version.before.py	2026-07-29 12:57:14.166989623 +0000
++++ /mnt/data/defectb_v2_work/DVS_AI_RC6.4.7H-r2_DEFECT_B_PRODUCTION_PATCH/dvs_ai/version.py	2026-07-29 12:57:15.642989623 +0000
+@@ -5,7 +5,7 @@
+ """
+ 
+ APP_NAME = "DVS AI"
+-APP_VERSION = "4.3.0E-3-QBP-4-RC7-BETA4A-RC6.4.7H-r2"
++APP_VERSION = "4.3.0E-3-QBP-4-RC7-BETA4A-RC6.4.7H-r2-DEFECT-B-V2"
+ APP_EDITION = (
+     "Technical Standard Validation · Auditable Telemetry · "
+     "Census Default-Off · Paper-only"
+@@ -14,7 +14,7 @@
+ EXECUTION_STATUS_LABEL = "● DATA LIVE · ORDERS LOCKED"
+ 
+ RELEASE_CHANNEL = "BETA2A_UNIFIED_OUTCOME_FOUNDATION"
+-BUILD_ID = "RC6.4.7H-r2-TS12-PFT-SINGLE-FLIGHT"
++BUILD_ID = "RC6.4.7H-r2-DEFECT-B-V2-LEARNING-REFRESH-SHUTDOWN"
+ 
+ __all__ = [
+     "APP_NAME",

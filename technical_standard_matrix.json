@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "document_role": "VERIFICATION_METHOD_ONLY_NOT_AUDIT_RESULT",
+  "generated_at_utc": "2026-07-29T02:20:15.917906+00:00",
+  "requirements": {
+    "TS-0.1": {
+      "title": "No unverifiable MUST",
+      "normative": "Every MUST MUST have a documented independent verification path.",
+      "verification_method": "Review registry and generated matrix; no verification fields may be empty.",
+      "verification_source": "SOURCE",
+      "required_evidence_level": "B"
+    },
+    "TS-3.1": {
+      "title": "Single source release identity",
+      "normative": "APP_VERSION and BUILD_ID MUST each have exactly one assignment in source; all manifests MUST derive from them.",
+      "verification_method": "AST-scan source assignments, then compare generated manifests and runtime identity.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    },
+    "TS-6.1": {
+      "title": "JSONL writer integrity",
+      "normative": "The writer MUST NOT create malformed records during normal operation; interrupted shutdown MUST be distinguishable.",
+      "verification_method": "Validate every JSONL line and classify malformed tails using explicit shutdown evidence.",
+      "verification_source": "RUNTIME",
+      "required_evidence_level": "C"
+    },
+    "TS-7.1": {
+      "title": "Callback attribution",
+      "normative": "Instrumented callbacks MUST expose stable name and duration; summary MUST expose P50/P95/P99/max.",
+      "verification_method": "Inspect attribution source and validate runtime callback records and summary.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    },
+    "TS-8.1": {
+      "title": "Memory budget ownership",
+      "normative": "Each memory budget MUST declare a real owner_path, measurement method and item count; residual MUST NOT be represented as an owner budget.",
+      "verification_method": "Inspect estimator registry and compare runtime records to live owner paths.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    },
+    "TS-9.1": {
+      "title": "Estimator lifetime",
+      "normative": "Temporary measurement references MUST remain inside measurement scope and MUST NOT escape into callback, queue or cache.",
+      "verification_method": "Inspect lexical scope and lifetime helper; run negative lifetime tests.",
+      "verification_source": "SOURCE",
+      "required_evidence_level": "B"
+    },
+    "TS-9.2": {
+      "title": "No measurement deepcopy",
+      "normative": "Estimators MUST NOT deepcopy payloads solely for measurement.",
+      "verification_method": "Static scan estimator modules for deepcopy/copy patterns and inspect measurement code.",
+      "verification_source": "SOURCE",
+      "required_evidence_level": "B"
+    },
+    "TS-10.1": {
+      "title": "Thread identity",
+      "normative": "Every estimator record MUST expose measurement_thread_id, gui_thread_id and is_gui_thread.",
+      "verification_method": "Inspect thread identity implementation and validate emitted runtime fields.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    },
+    "TS-10.2": {
+      "title": "GUI thread safety",
+      "normative": "Heavy estimators MUST NOT execute on the GUI thread.",
+      "verification_method": "Compare measurement_thread_id against gui_thread_id for every heavy estimator record.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    },
+    "TS-11.1": {
+      "title": "Traversal deadline",
+      "normative": "Bounded traversal estimators MUST check their deadline inside the traversal loop where cancellation is possible.",
+      "verification_method": "Inspect loop body and run deadline regression test.",
+      "verification_source": "SOURCE",
+      "required_evidence_level": "B"
+    },
+    "TS-12.1": {
+      "title": "Burn-in evidence",
+      "normative": "A validation burn-in MUST record runtime, RSS, allocator, GC, callback and memory-budget evidence.",
+      "verification_method": "Validate required artifact presence and non-empty runtime records.",
+      "verification_source": "RUNTIME",
+      "required_evidence_level": "C"
+    },
+    "TS-15.1": {
+      "title": "Telemetry compatibility",
+      "normative": "Schema evolution MUST append fields or bump schema_version; existing field meanings MUST NOT change silently.",
+      "verification_method": "Diff schema declarations and validate schema_version in runtime records.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    },
+    "TS-16.1": {
+      "title": "Fail-open instrumentation",
+      "normative": "Instrumentation MUST fail open and MUST NOT change pipeline semantics.",
+      "verification_method": "Inspect exception/lock paths and execute negative failure injection tests.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    },
+    "TS-17.1": {
+      "title": "Shutdown safety",
+      "normative": "Instrumentation MUST NOT block shutdown or retain worker/thread/queue references after shutdown.",
+      "verification_method": "Inspect shutdown paths and validate clean shutdown lifecycle telemetry.",
+      "verification_source": "SOURCE+RUNTIME",
+      "required_evidence_level": "A"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "baseline_runtime_main_window_sha256": "b1d445b8cf893b94b3772f239df2536e1a17ecb1f683f25c15bfa2dfa1e57086",
+  "baseline_zip": "DVS_AI_RC6.4.7H-r2_GR-01A_MEASUREMENT_CALLBACK_DECOMPOSITION.zip",
+  "build_id": "S4.1.2-r1-CORRECTED-DETERMINISTIC-WORKER-DELETION",
+  "controlled_scope": [
+    "FinalizationWorker lifecycle wiring",
+    "QuantumWorker lifecycle wiring",
+    "remove duplicate QThread.deleteLater from cleanup"
+  ],
+  "created_utc": "2026-08-02T12:57:56.677920+00:00",
+  "decision_engine_sha256": "00c1db1a1684896b3c06fbf4cfaeea094337f1841dc2e3cb9dfdf9013252dbce",
+  "deferred": [
+    "root QApplication/MainWindow teardown F03",
+    "S4.1.3 Signal/Slot Graph"
+  ],
+  "output_main_window_sha256": "0f390bb27f8180791987bedb467d7285866bda873479b6a2d02c62325b479d29",
+  "python_compile": "PASS",
+  "runtime_verification": "PENDING",
+  "schema_version": "dvs.s4.1.2-r1.corrected_build.v1",
+  "static_checks": {
+    "finalization_cleanup_no_delete_call": true,
+    "finalization_destroyed_quit": true,
+    "quantum_cleanup_no_delete_call": true,
+    "quantum_destroyed_quit": true
+  }
+}

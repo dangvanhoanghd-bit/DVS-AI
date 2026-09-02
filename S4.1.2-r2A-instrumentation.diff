@@ -1,0 +1,89 @@
+--- /mnt/user-data/uploads/app.py	2026-08-02 13:35:37.271441000 +0000
++++ /home/claude/app_r2a.py	2026-08-02 13:40:30.727673527 +0000
+@@ -45,6 +45,22 @@
+     return digest.hexdigest()
+ 
+ 
++def _is_valid_wrapper(obj):
++    # S4.1.2-r2A (instrumentation only, no behavior change): report whether
++    # the underlying C++ QObject behind a Python wrapper is still alive.
++    # shiboken6.isValid() is the public, documented way to ask this without
++    # touching the object itself. Any failure (object not a QObject wrapper,
++    # shiboken6 unavailable, etc.) is reported as None rather than raising,
++    # so this can never change control flow or crash the shutdown path.
++    if obj is None:
++        return None
++    try:
++        import shiboken6
++        return bool(shiboken6.isValid(obj))
++    except Exception:
++        return None
++
++
+ def _write_runtime_code_identity() -> None:
+     project_root = Path(__file__).resolve().parent.parent
+     relative_files = (
+@@ -167,6 +183,16 @@
+         live_episode_capture=live_episode_capture_runner,
+     )
+     shutdown_probe.register_object("main_window", window)
++    # S4.1.2-r2A (instrumentation only): record the moment window's C++
++    # object is actually destroyed, if it ever is, before interpreter exit.
++    try:
++        window.destroyed.connect(
++            lambda *_: shutdown_probe.mark("main_window_destroyed_signal")
++        )
++    except Exception as _exc:
++        shutdown_probe.mark(
++            "main_window_destroyed_probe_failed", error=repr(_exc)
++        )
+     for _name in (
+         "_history_prepare_thread", "_history_prepare_worker",
+         "_paper_prepare_thread", "_paper_prepare_worker",
+@@ -236,6 +262,18 @@
+         parent=window,
+     )
+     shutdown_probe.register_object("runtime_telemetry_exporter", telemetry)
++    # S4.1.2-r2A (instrumentation only): record the moment telemetry's C++
++    # object is actually destroyed, if it ever is, before interpreter exit.
++    # Guarded because we have not independently confirmed
++    # RuntimeTelemetryExporter is a QObject subclass with a destroyed signal.
++    try:
++        telemetry.destroyed.connect(
++            lambda *_: shutdown_probe.mark("runtime_telemetry_destroyed_signal")
++        )
++    except Exception as _exc:
++        shutdown_probe.mark(
++            "runtime_telemetry_destroyed_probe_failed", error=repr(_exc)
++        )
+     telemetry.start()
+     shutdown_probe.mark("qt_event_loop_enter")
+     try:
+@@ -245,6 +283,14 @@
+         return exit_code
+     finally:
+         shutdown_probe.mark("app_finally_enter")
++        # S4.1.2-r2A (instrumentation only): snapshot whether window/telemetry
++        # C++ objects are still alive at the moment we enter finally, i.e.
++        # immediately after app.exec() returns and before any teardown here.
++        shutdown_probe.mark(
++            "root_wrapper_validity_finally_enter",
++            window_valid=_is_valid_wrapper(window),
++            telemetry_valid=_is_valid_wrapper(telemetry),
++        )
+         shutdown_probe.snapshot_threads("app_finally_enter")
+         shutdown_probe.snapshot_tracked_objects("app_finally_enter")
+         shutdown_probe.snapshot_application_qobjects("app_finally_enter")
+@@ -257,4 +303,12 @@
+         shutdown_probe.snapshot_threads("app_finally_exit")
+         shutdown_probe.snapshot_tracked_objects("app_finally_exit")
+         shutdown_probe.snapshot_application_qobjects("app_finally_exit")
++        # S4.1.2-r2A (instrumentation only): snapshot again right before we
++        # actually leave main() / finally and control returns to run.py,
++        # which is the last point before CPython begins Py_FinalizeEx.
++        shutdown_probe.mark(
++            "root_wrapper_validity_finally_exit",
++            window_valid=_is_valid_wrapper(window),
++            telemetry_valid=_is_valid_wrapper(telemetry),
++        )
+         shutdown_probe.mark("app_finally_exit")

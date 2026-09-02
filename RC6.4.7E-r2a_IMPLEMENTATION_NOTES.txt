@@ -1,0 +1,11 @@
+RC6.4.7E-r2a — Version Module API Startup Fix
+
+Scope:
+- Restores APP_NAME, APP_VERSION, APP_EDITION, WINDOW_TITLE,
+  EXECUTION_STATUS_LABEL, RELEASE_CHANNEL, and BUILD_ID in dvs_ai.version.
+- Preserves RC6.4.7E-r2 targeted owner counters unchanged.
+- Updates runtime build identity label only.
+- Decision Engine unchanged.
+
+Startup regression classification:
+VERSION_MODULE_API_REGRESSION
