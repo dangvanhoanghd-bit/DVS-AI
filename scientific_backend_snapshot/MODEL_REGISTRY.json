@@ -1,7 +1,0 @@
-{
-  "registry_status": "NOT_READY",
-  "generated_at": "",
-  "current_model": null,
-  "models": [],
-  "reason_codes": ["PACKAGED_SNAPSHOT_HAS_NO_CERTIFIED_MODEL_REGISTRY"]
-}
