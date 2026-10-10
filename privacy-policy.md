@@ -1,0 +1,1 @@
+"Ứng dụng chạy cục bộ trên máy cá nhân (Local CLI/Desktop app) dùng để tự động hóa công việc, tuyệt đối không thu thập, chia sẻ hay lưu trữ bất kỳ dữ liệu cá nhân nào của người dùng."
